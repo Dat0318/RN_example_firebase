@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "484309648056",
+    "project_id": "rnexamplefirebase",
+    "storage_bucket": "rnexamplefirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484309648056:android:cdb20c5770d8ec209bea4d",
+        "android_client_info": {
+          "package_name": "com.rn_example_base"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "484309648056-tk1005t6fp1rvnjn4ifg9o0ghn3rpsth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgj2BdiVk6VLIcgADsbHMGoMutGrPh0YA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "484309648056-tk1005t6fp1rvnjn4ifg9o0ghn3rpsth.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
