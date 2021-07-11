@@ -15,13 +15,18 @@ import {
   View,
   Button,
 } from 'react-native';
-import auth from '@react-native-firebase/auth';
-import analytics from '@react-native-firebase/analytics';
+// import auth from '@react-native-firebase/auth';
+// import analytics from '@react-native-firebase/analytics';
 
+export function sum(a: number, b: number) {
+  return a + b;
+}
 
-
-const App = () => {
-  const user = auth().currentUser;
+export const App = () => {
+  // const user = auth().currentUser;
+  const user = {
+    email: 'name@gmail.com'
+  };
 
   return (
     <View style={styles.sectionContainer}>
