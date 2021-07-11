@@ -1,69 +1,39 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
-import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-} from 'react-native';
-// import auth from '@react-native-firebase/auth';
-// import analytics from '@react-native-firebase/analytics';
+import React, {useEffect, useRef} from 'react';
+import 'react-native-gesture-handler';
+import {Navigation} from './screens';
+import {NavigationContainer} from '@react-navigation/native';
+import analytics from '@react-native-firebase/analytics';
 
 export function sum(a: number, b: number) {
   return a + b;
 }
 
 export const App = () => {
-  // const user = auth().currentUser;
-  const user = {
-    email: 'name@gmail.com'
+  const navigationRef = useRef();
+
+  useEffect(() => {}, []);
+
+  const getActiveRouteName = (state: any) => {
+    return 'name';
   };
 
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={styles.sectionTitle}>
-        {
-          !user ?
-            `Welcome ${user?.email}`
-            :
-            'Please login.'
+    <NavigationContainer
+      ref={navigationRef}
+      onStateChange={async state => {
+        const previousRouteName = navigationRef.current;
+        const currentRouteName = getActiveRouteName(state);
+
+        if (previousRouteName !== currentRouteName) {
+          await analytics().logScreenView({
+            screen_name: currentRouteName,
+            screen_class: currentRouteName,
+          });
         }
-      </Text>
-      <Button
-        title="Add To Basket"
-        onPress={async () =>
-          await analytics().logEvent('basket', {
-            id: 3745092,
-            item: 'mens grey t-shirt',
-            description: ['round neck', 'long sleeved'],
-            size: 'L',
-          })
-        }
-      />
-    </View>
+      }}>
+      <Navigation />
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-});
 
 export default App;
