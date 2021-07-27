@@ -29,6 +29,24 @@ export const List = () => {
         activeOpacity={1}>
         <Text style={styles.buttonText}>Analytics</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('Demo')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>Demo</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('DynamicLinks')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>DynamicLinks</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('RealTime')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>RealTime</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 };
