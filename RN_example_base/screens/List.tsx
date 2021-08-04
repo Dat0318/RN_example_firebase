@@ -24,6 +24,12 @@ export const List = () => {
         <Text style={styles.buttonText}>Auth</Text>
       </TouchableOpacity>
       <TouchableOpacity
+        onPress={() => _navigate('CacheImage')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>CacheImage</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
         onPress={() => _navigate('Analytics')}
         style={styles.button}
         activeOpacity={1}>

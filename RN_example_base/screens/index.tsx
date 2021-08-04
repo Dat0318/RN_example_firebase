@@ -1,5 +1,6 @@
 import {Analytics} from './Analytics';
 import {Auth} from './Auth';
+import {CacheImage} from './CacheImage';
 import {Demo} from './Demo';
 import {DynamicLinks} from './DynamicLinks';
 import {RealTime} from './RealTime';
@@ -19,6 +20,7 @@ export function Navigation() {
       <Stack.Screen name="List" component={List} />
       <Stack.Screen name="Analytics" component={Analytics} />
       <Stack.Screen name="Auth" component={Auth} />
+      <Stack.Screen name="CacheImage" component={CacheImage} />
       <Stack.Screen name="Demo" component={Demo} />
       <Stack.Screen name="DynamicLinks" component={DynamicLinks} />
       <Stack.Screen name="RealTime" component={RealTime} />
