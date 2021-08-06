@@ -49,10 +49,14 @@
     "react-native": "0.64.1",
     "react-native-fetch-blob": "^0.10.8",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-html-to-pdf": "^0.10.0",
+    "react-native-maps": "^0.28.0",
     "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.4.0",
+    "react-native-sqlite-storage": "^5.0.0",
     "react-native-twitter-signin": "^1.1.1",
+    "react-native-youtube": "^2.0.2",
     "yarn": "^1.22.11"
   },
   "devDependencies": {
