@@ -59,6 +59,13 @@ export const Analytics = () => {
           })
         }
       />
+
+      <Button
+        title={'Javascript Crash Now.'}
+        onPress={() => {
+          // undefinedVariable.notAFunction();
+        }}
+      />
     </View>
   );
 };
