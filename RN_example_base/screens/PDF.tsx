@@ -28,6 +28,8 @@ export const PDF = () => {
             buttonPositive: 'buttonPositive',
           },
         );
+        console.log(granted, PermissionsAndroid.RESULTS.GRANTED);
+
         return granted === PermissionsAndroid.RESULTS.GRANTED;
       } catch (err) {
         console.log('Write permission err', err);
@@ -42,15 +44,15 @@ export const PDF = () => {
     if (await isPermitted()) {
       let options = {
         //Content to print
-        html: '<h1 style="text-align: center;"><strong>Hello Guys</strong></h1><p style="text-align: center;">Here is an example of pdf Print in React Native</p><p style="text-align: center;"><strong>Team About React</strong></p>',
+        html: '<h1 style="text-align: center;"><strong>Hello Guys</strong></h1><p style="text-align: center;">Here is an example of pdf Print in React Native</p><p style="text-align: center;"></p>',
         //File Name
         fileName: 'test',
         //File directory
-        directory: 'docs',
+        directory: 'documents',
       };
-      let file = await RNHTMLtoPDF.convert(options);
-      console.log(file.filePath);
-      setFilePath(file.filePath);
+      let file: any = await RNHTMLtoPDF.convert(options);
+      console.log(file);
+      setFilePath(file?.filePath);
     }
   };
 

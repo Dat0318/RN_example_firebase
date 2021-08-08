@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "484309648056",
+    "firebase_url": "https://rnexamplefirebase-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "rnexamplefirebase",
     "storage_bucket": "rnexamplefirebase.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "484309648056-oqv09m3cldbadg6684q2bq37558hhoqv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rn_example_base",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
         {
           "client_id": "484309648056-tk1005t6fp1rvnjn4ifg9o0ghn3rpsth.apps.googleusercontent.com",
           "client_type": 3
@@ -29,6 +38,13 @@
             {
               "client_id": "484309648056-tk1005t6fp1rvnjn4ifg9o0ghn3rpsth.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "484309648056-nsgjvru8j0ci8citnlmt69n7a7cok5bs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dattd.RN-example-base"
+              }
             }
           ]
         }

@@ -1,5 +1,11 @@
-import React from 'react';
-import {SafeAreaView, View, Text, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import LocalizedStrings from 'react-native-localization';
 
 const StringsOfLanguages = new LocalizedStrings({
@@ -22,28 +28,22 @@ const StringsOfLanguages = new LocalizedStrings({
 });
 
 export const Lang = () => {
+  const [name, setName] = useState('Dat');
+  const _changeLang = () => {
+    StringsOfLanguages.setLanguage('fr');
+    setName('Duy');
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
         <Text style={styles.text}>{StringsOfLanguages.first}</Text>
-        <Text style={styles.text}>{StringsOfLanguages.second}</Text>
+        <Text style={styles.text}>
+          {StringsOfLanguages.second} {name}
+        </Text>
       </View>
-      <Text
-        style={{
-          fontSize: 18,
-          textAlign: 'center',
-          color: 'grey',
-        }}>
-        Example of Localization in React Native (Multi Language App)
-      </Text>
-      <Text
-        style={{
-          fontSize: 16,
-          textAlign: 'center',
-          color: 'grey',
-        }}>
-        www.aboutreact.com
-      </Text>
+      <TouchableOpacity onPress={_changeLang}>
+        <Text>Change Text</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };

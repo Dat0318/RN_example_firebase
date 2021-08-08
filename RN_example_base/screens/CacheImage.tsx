@@ -53,35 +53,36 @@ const ImagePlaceholder = () => {
 };
 
 export const CacheImage = () => {
-  const [source, setSource] = useState(images[0]);
-  const clearCache = useCallback(async () => {
-    try {
-      await CacheManager.clearCache();
-      Alert.alert('Cache cleared');
-    } catch (e) {
-      Alert.alert(e);
-    }
-  }, []);
-
-  const clearSingleImageFromCache = useCallback(async () => {
-    try {
-      await CacheManager.removeCacheEntry(images[1]);
-      Alert.alert('Image cleared from cache');
-    } catch (e) {
-      Alert.alert(e);
-    }
-  }, []);
-
-  const changeSource = () => {
-    setSource(images[0]);
-  };
-
   const images = [
     'https://media.wired.com/photos/59822d6c5350085419ca1488/master/w_1920,c_limit/PeacockHP-691483428.jpg',
     'https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
     'https://images.unsplash.com/photo-1627933907906-6075f7c88da5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
     'https://images.unsplash.com/photo-1627959449026-fab24729be4e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
   ];
+  const [source, setSource] = useState(images[0]);
+  const clearCache = useCallback(async () => {
+    try {
+      await CacheManager.clearCache();
+      Alert.alert('Title', 'Cache cleared');
+    } catch (e) {
+      Alert.alert('Title', e);
+    }
+  }, []);
+
+  const clearSingleImageFromCache = useCallback(async () => {
+    try {
+      await CacheManager.removeCacheEntry(images[1]);
+      Alert.alert('Title', 'Image cleared from cache');
+    } catch (e) {
+      Alert.alert('Title', e);
+    }
+  }, []);
+
+  const changeSource = async () => {
+    let size = await CacheManager.getCacheSize();
+    console.log('size: ', size);
+    setSource(images[0]);
+  };
 
   return (
     <SafeAreaView style={styles.container}>

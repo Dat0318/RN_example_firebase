@@ -33,7 +33,7 @@ export const List = () => {
         <Text style={styles.buttonText}>Auth</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => _navigate('Auth')}
+        onPress={() => _navigate('CacheImage')}
         style={styles.button}
         activeOpacity={1}>
         <Text style={styles.buttonText}>CacheImage</Text>
@@ -90,7 +90,8 @@ export const List = () => {
         <Text style={styles.buttonText}>Print</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => _navigate('Drive')}
+        // onPress={() => _navigate('Drive')}
+        onPress={() => _navigate('GoogleLoginScreen')}
         style={styles.button}
         activeOpacity={1}>
         <Text style={styles.buttonText}>Drive</Text>
@@ -100,6 +101,48 @@ export const List = () => {
         style={styles.button}
         activeOpacity={1}>
         <Text style={styles.buttonText}>Lang</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('GeoLocation')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>GeoLocation</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('ImageMapper')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>ImageMapper</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('SwipeCard')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>SwipeCard</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('AlphabetContacts')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>AlphabetContacts</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('Accordion')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>Accordion</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('AlphabetContacts')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>AlphabetContacts</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('AlphabetContacts')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>AlphabetContacts</Text>
       </TouchableOpacity>
     </ScrollView>
   );
