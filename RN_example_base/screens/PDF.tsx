@@ -14,7 +14,7 @@ import {
 // Import HTML to PDF
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 
-const App = () => {
+export const PDF = () => {
   const [filePath, setFilePath] = useState('');
 
   const isPermitted = async () => {
@@ -25,11 +25,12 @@ const App = () => {
           {
             title: 'External Storage Write Permission',
             message: 'App needs access to Storage data',
+            buttonPositive: 'buttonPositive',
           },
         );
         return granted === PermissionsAndroid.RESULTS.GRANTED;
       } catch (err) {
-        alert('Write permission err', err);
+        console.log('Write permission err', err);
         return false;
       }
     } else {
@@ -76,8 +77,6 @@ const App = () => {
     </SafeAreaView>
   );
 };
-
-export default App;
 
 const styles = StyleSheet.create({
   container: {

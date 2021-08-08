@@ -1,5 +1,11 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, Text, TouchableOpacity, ScrollView} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 export const List = () => {
@@ -11,6 +17,9 @@ export const List = () => {
 
   return (
     <ScrollView style={styles.container}>
+      <View style={styles.buttonTtl}>
+        <Text style={styles.buttonText}>Firebase Example</Text>
+      </View>
       <TouchableOpacity
         onPress={() => _navigate('Analytics')}
         style={styles.button}
@@ -36,12 +45,6 @@ export const List = () => {
         <Text style={styles.buttonText}>Analytics</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => _navigate('Demo')}
-        style={styles.button}
-        activeOpacity={1}>
-        <Text style={styles.buttonText}>Demo</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
         onPress={() => _navigate('DynamicLinks')}
         style={styles.button}
         activeOpacity={1}>
@@ -52,6 +55,51 @@ export const List = () => {
         style={styles.button}
         activeOpacity={1}>
         <Text style={styles.buttonText}>RealTime</Text>
+      </TouchableOpacity>
+      <View style={styles.buttonTtl}>
+        <Text style={styles.buttonText}>About React</Text>
+      </View>
+      <TouchableOpacity
+        onPress={() => _navigate('PDF')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>PDF</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('Map')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>Map</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('You')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>You</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('Ama')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>Ama</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('Print')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>Print</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('Drive')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>Drive</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('Lang')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>Lang</Text>
       </TouchableOpacity>
     </ScrollView>
   );
@@ -66,6 +114,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 15,
     backgroundColor: 'lightblue',
+    marginTop: 20,
+    borderRadius: 10,
+  },
+  buttonTtl: {
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    backgroundColor: '#ca89f3',
     marginTop: 20,
     borderRadius: 10,
   },
