@@ -55,7 +55,7 @@ const GDUploadFileScreen = () => {
     let token = await GoogleSignin.getTokens();
     console.log('token: ', token);
     if (!token) return alert('Failed to get token');
-    console.log('res.accessToken 1=>', token?.accessToken, GDrive);
+    console.log('res.accessToken 1=>', token?.accessToken);
     // Setting Access Token
     GDrive.setAccessToken(token?.accessToken);
     // Initializing Google Drive and confirming permissions

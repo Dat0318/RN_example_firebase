@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import analytics from '@react-native-firebase/analytics';
 import 'react-native-gesture-handler';
@@ -29,6 +29,21 @@ export const Analytics = () => {
   const _run = async () => {
     const appInstanceId = await analytics().getAppInstanceId();
     console.log('appInstanceId: ', appInstanceId);
+  };
+
+  const realtimeLogContent = () => {
+    analytics().logSelectContent({
+      content_type: 'Button Clicked',
+      item_id: 'button1',
+    });
+  };
+
+  const logCustomeEvent = () => {
+    analytics().logEvent('my_custom_event', {
+      id: 101,
+      item: 'My Product Name',
+      description: ['My Product Desc 1', 'My Product Desc 2'],
+    });
   };
 
   return (
@@ -66,6 +81,27 @@ export const Analytics = () => {
           // undefinedVariable.notAFunction();
         }}
       />
+
+      <View style={styles.container}>
+        <Text style={styles.heading}>React Native Firebase</Text>
+        <Text style={styles.normalTextStyle}>#1 Firebase Analytics</Text>
+        <View style={styles.innerContainer}>
+          <Text style={styles.normalTextStyle}>Log React Time Content</Text>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            style={styles.buttonStyle}
+            onPress={realtimeLogContent}>
+            <Text style={styles.buttonTextStyle}>Click Button</Text>
+          </TouchableOpacity>
+          <Text style={styles.normalTextStyle}>Trigger My Custom Event</Text>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            style={styles.buttonStyle}
+            onPress={logCustomeEvent}>
+            <Text style={styles.buttonTextStyle}>Create Custom Event</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 };
@@ -79,5 +115,28 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
+  },
+  innerContainer: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  heading: {
+    fontSize: 30,
+  },
+  buttonStyle: {
+    minWidth: 300,
+    justifyContent: 'center',
+    padding: 10,
+    backgroundColor: '#8ad24e',
+  },
+  buttonTextStyle: {
+    color: 'white',
+    textAlign: 'center',
+  },
+  normalTextStyle: {
+    color: 'black',
+    textAlign: 'center',
+    marginVertical: 20,
+    fontSize: 18,
   },
 });
