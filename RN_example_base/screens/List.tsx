@@ -39,6 +39,12 @@ export const List = () => {
         <Text style={styles.buttonText}>CacheImage</Text>
       </TouchableOpacity>
       <TouchableOpacity
+        onPress={() => _navigate('FileStore')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>FileStore</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
         onPress={() => _navigate('Analytics')}
         style={styles.button}
         activeOpacity={1}>

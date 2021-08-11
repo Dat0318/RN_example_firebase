@@ -17,6 +17,10 @@ target 'RN_example_base' do
     # Pods for testing
   end
 
+  pre_install do |installer|
+    $RNMBGL.pre_install(installer)
+  end
+
   # Enables Flipper.
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
@@ -24,6 +28,7 @@ target 'RN_example_base' do
   use_flipper!()
 
   post_install do |installer|
+    $RNMBGL.post_install(installer)
     react_native_post_install(installer)
   end
 end

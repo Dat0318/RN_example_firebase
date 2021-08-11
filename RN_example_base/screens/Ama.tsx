@@ -54,7 +54,7 @@ export const Ama = () => {
       },
       {
         keyPrefix: '**Your Key Prefix**', // Ex. myuploads/
-        bucket: '**Name of Your AWS Bucket**', // Ex. aboutreact
+        bucket: '**Name of Your AWS Bucket**', // Ex.
         region: '**Region**', // Ex. ap-south-1
         accessKey: '**Replace your Access Key**',
         // Ex. AKIH73GS7S7C53M46OQ

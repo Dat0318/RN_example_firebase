@@ -52,10 +52,7 @@ export function Auth() {
 
   const _loginWithEmailAndPassword = () => {
     auth()
-      .createUserWithEmailAndPassword(
-        'jane.doe@example.com',
-        'SuperSecretPassword!',
-      )
+      .createUserWithEmailAndPassword('datd@vmodev.com', 'SuperSecretPassword!')
       .then(() => {
         console.log('User account created & signed in!');
       })
@@ -79,7 +76,8 @@ export function Auth() {
   };
 
   const _signInWithPhone = async () => {
-    await auth().signInWithPhoneNumber('0986419381');
+    let user = await auth().signInWithPhoneNumber('+84986419381');
+    console.log('user: ', user);
   };
 
   const _verifyPhone = async () => {
@@ -97,6 +95,9 @@ export function Auth() {
     return (
       <View style={styles.sectionContainer}>
         <Text style={styles.sectionTitle}>Login</Text>
+        <TouchableOpacity style={styles.button} onPress={_signOut}>
+          <Text style={styles.btnText}>_signOut</Text>
+        </TouchableOpacity>
       </View>
     );
   }

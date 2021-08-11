@@ -81,7 +81,7 @@ export const CacheImage = () => {
   const changeSource = async () => {
     let size = await CacheManager.getCacheSize();
     console.log('size: ', size);
-    setSource(images[0]);
+    setSource(images[1]);
   };
 
   return (
@@ -92,7 +92,7 @@ export const CacheImage = () => {
           return (
             <View style={styles.cachedImageContainer} key={index}>
               <CachedImage
-                source={item}
+                source={source}
                 style={styles.image}
                 blurRadius={1}
                 loadingImageComponent={ImagePlaceholder}
@@ -103,21 +103,21 @@ export const CacheImage = () => {
 
         <View style={styles.clearCacheButtonContainer}>
           <Button
-            color="white"
+            color="black"
             onPress={clearCache}
             title="Clear Entire Cache"
           />
         </View>
         <View style={styles.clearCacheButtonContainer}>
           <Button
-            color="white"
+            color="black"
             onPress={clearSingleImageFromCache}
             title="Clear only image"
           />
         </View>
         <View style={styles.clearCacheButtonContainer}>
           <Button
-            color="white"
+            color="black"
             onPress={changeSource}
             title="Change Image source"
           />

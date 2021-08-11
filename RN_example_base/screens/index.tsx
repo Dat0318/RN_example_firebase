@@ -16,6 +16,7 @@ import {ImageMap} from './ImageMapper';
 import {SwipeCard} from './SwipeCard';
 import {AccordionSection} from './Accordion';
 import {AlphabetContacts} from './AlphabetContacts';
+import {FileStore} from './FileStore';
 import {
   GoogleLoginScreen,
   GDUploadFileScreen,
@@ -24,6 +25,15 @@ import {
   GDDeleteFileScreen,
   GDDownloadFileScreen,
 } from './Drive/index';
+import {
+  AddOrderSummary,
+  RealTimeAddUpdateUser,
+  DeleteUser,
+  RegisterUser,
+  UpdateUser,
+  ViewAllUser,
+  ViewUser,
+} from './FireStore';
 
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -68,6 +78,19 @@ export function Navigation() {
         name="GDDownloadFileScreen"
         component={GDDownloadFileScreen}
       />
+
+      {/* Firebase Store */}
+      <Stack.Screen name="FileStore" component={FileStore} />
+      <Stack.Screen name="RegisterUser" component={RegisterUser} />
+      <Stack.Screen name="UpdateUser" component={UpdateUser} />
+      <Stack.Screen name="ViewAllUser" component={ViewAllUser} />
+      <Stack.Screen name="ViewUser" component={ViewUser} />
+      <Stack.Screen name="DeleteUser" component={DeleteUser} />
+      <Stack.Screen
+        name="RealTimeAddUpdateUser"
+        component={RealTimeAddUpdateUser}
+      />
+      <Stack.Screen name="AddOrderSummary" component={AddOrderSummary} />
     </Stack.Navigator>
   );
 }

@@ -4,31 +4,51 @@ import Mytextinput from '../Components/Mytextinput';
 import Mybutton from '../Components/Mybutton';
 import firestore from '@react-native-firebase/firestore';
 
-export const RegisterUser = props => {
+export const UpdateUser = props => {
+  let [userId, setUserId] = useState('');
   let [userName, setUserName] = useState('');
   let [userContact, setUserContact] = useState('');
   let [userAddress, setUserAddress] = useState('');
 
-  const handleRegistration = () => {
-    if (userName && userContact && userAddress) {
-      /*
-        "add()" method adds the new document with a random unique ID
-        If you'd like to specify your own ID then use "set()" method
-        firestore()
-          .collection('Users')
-          .doc('101')
-          .set({
-            name: userName,
-            contact: userContact,
-            address: userAddress,
-          })
-        .then(() => {
-          console.log('User added!');
-        });
-      */
+  const searchUser = () => {
+    if (userId) {
       firestore()
         .collection('Users')
-        .add({
+        .doc(userId)
+        .get()
+        .then(documentSnapshot => {
+          /*
+            A DocumentSnapshot belongs to a specific document,
+            With snapshot you can view a documents data,
+            metadata and whether a document actually exists.
+          */
+          if (documentSnapshot.exists) {
+            setUserName(documentSnapshot.data().name);
+            setUserContact(documentSnapshot.data().contact);
+            setUserAddress(documentSnapshot.data().address);
+          } else {
+            setUserName('');
+            setUserContact('');
+            setUserAddress('');
+          }
+        });
+    }
+  };
+
+  const updateUser = () => {
+    if (userId && userName && userContact && userAddress) {
+      /*
+        Please note update is not just for the update in firebase,
+        while updating if record not found in firebase then
+        it will create one, update Method also provides support for
+        updating deeply nested values via dot-notation
+        .update({ 'details.address.zipcode': 452012 })
+      */
+
+      firestore()
+        .collection('Users')
+        .doc(userId)
+        .update({
           name: userName,
           contact: userContact,
           address: userAddress,
@@ -36,7 +56,7 @@ export const RegisterUser = props => {
         .then(() => {
           Alert.alert(
             'Success',
-            'You are Registered Successfully',
+            'Updated Successfully',
             [
               {
                 text: 'Ok',
@@ -59,30 +79,8 @@ export const RegisterUser = props => {
             {cancelable: false},
           );
         });
-
-      /*
-        You can also add the data using set instead of push
-        but in that case you have to provide the user id by
-        your own as NoSql DBs have no concept of auto increment
-      */
-      /*
-        firebase.database()
-          .ref("users/<You custome key for the User>")
-          .set({
-            name: userName,
-            contact: userContact,
-            address: userAddress
-          }).then(()=>{
-          Alert.alert(
-            'Success','You are Registered Successfully',
-            [{
-              text: 'Ok',
-              onPress:
-              () => props.navigation.navigate('FileStore')}
-            ],{ cancelable: false });
-      });*/
     } else {
-      Alert.alert('Fill details', 'Please fill all the details');
+      alert('Please fill all fields');
     }
   };
 
@@ -98,18 +96,28 @@ export const RegisterUser = props => {
           behavior="padding"
           style={{flex: 1, justifyContent: 'space-between'}}>
           <Mytextinput
-            placeholder="Enter Name"
-            onChangeText={userName => setUserName(userName)}
+            placeholder="Enter User Id"
             style={{padding: 10}}
+            value={userId}
+            onChangeText={userId => setUserId(userId)}
+          />
+          <Mybutton title="Search User" customClick={searchUser} />
+          <Mytextinput
+            placeholder="Enter Name"
+            value={userName}
+            style={{padding: 10}}
+            onChangeText={userName => setUserName(userName)}
           />
           <Mytextinput
             placeholder="Enter Contact No"
+            value={'' + userContact}
             onChangeText={userContact => setUserContact(userContact)}
             maxLength={10}
-            keyboardType="numeric"
             style={{padding: 10}}
+            keyboardType="numeric"
           />
           <Mytextinput
+            value={userAddress}
             placeholder="Enter Address"
             onChangeText={userAddress => setUserAddress(userAddress)}
             maxLength={225}
@@ -117,11 +125,11 @@ export const RegisterUser = props => {
             multiline={true}
             style={{textAlignVertical: 'top', padding: 10}}
           />
-          <Mybutton title="Submit" customClick={handleRegistration} />
+          <Mybutton title="Update User" customClick={updateUser} />
         </KeyboardAvoidingView>
       </ScrollView>
     </View>
   );
 };
 
-export default RegisterUser;
+export default UpdateUser;

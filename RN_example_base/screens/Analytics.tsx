@@ -27,6 +27,7 @@ export const Analytics = () => {
   }, []);
 
   const _run = async () => {
+    analytics().setAnalyticsCollectionEnabled(true);
     const appInstanceId = await analytics().getAppInstanceId();
     console.log('appInstanceId: ', appInstanceId);
   };
