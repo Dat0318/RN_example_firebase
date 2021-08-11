@@ -53,6 +53,8 @@
     "@types/react-native-aws3": "^0.0.1",
     "@types/react-native-html-to-pdf": "^0.8.1",
     "add": "^2.0.6",
+    "appcenter-analytics": "^4.2.0",
+    "appcenter-crashes": "^4.2.0",
     "geolib": "^3.3.1",
     "react": "17.0.1",
     "react-native": "0.64.1",

@@ -121,6 +121,7 @@ def jscFlavor = 'org.webkit:android-jsc:+'
  * and the benefits of using Hermes will therefore be sharply reduced.
  */
 def enableHermes = project.ext.react.get('enableHermes', false)
+def today = new Date().format('ddMMyyyy')
 
 android {
     ndkVersion rootProject.ext.ndkVersion
@@ -142,6 +143,7 @@ android {
         versionCode 1
         versionName '1.0'
         multiDexEnabled true
+        setProperty("archivesBaseName", "RnExample-v" + versionCode + "(" + versionName + ")-" + today)
     }
     splits {
         abi {
@@ -185,16 +187,16 @@ android {
             }
 
             // config output app
-            applicationVariants.all { variant ->
-            variant.outputs.all {
-                def formattedDate = new Date().format('ddMMyyyy')
-                def flavor = variant.name
-                def versionName = variant.versionName
-                outputFileName = "RnExample-${formattedDate}-v${versionName}.apk"
-                // output -> ladies-nails17122020.apk
-                // outputFileName = "AppName_${versionName}_${flavor}_${formattedDate}.apk"
-                }
-            }
+            // applicationVariants.all { variant ->
+            // variant.outputs.all {
+            //     def formattedDate = new Date().format('ddMMyyyy')
+            //     def flavor = variant.name
+            //     def versionName = variant.versionName
+            //     outputFileName = "RnExample-${formattedDate}-v${versionName}.apk"
+            //     // output -> ladies-nails17122020.apk
+            //     // outputFileName = "AppName_${versionName}_${flavor}_${formattedDate}.apk"
+            //     }
+            // }
             // output -> AppName_release_1_20200121175123.apk
         }
     }
@@ -256,5 +258,43 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
+
+// tasks.whenTaskAdded { task ->
+//     if (task.name.startsWith("bundle")) {
+//         def renameTaskName = "rename${task.name.capitalize()}Aab"
+//         def flavor = task.name.substring("bundle".length()).uncapitalize()
+//         tasks.create(renameTaskName, Copy) {
+//             def path = "${buildDir}/outputs/bundle/${flavor}/"
+//             from(path)
+//             include "app-release.aab"
+//             destinationDir file("${buildDir}/outputs/renamedBundle/")
+//             rename "app-release.aab", "${flavor}.aab"
+//         }
+
+//         task.finalizedBy(renameTaskName)
+//     }
+// }
+
+// task renameBundle(type: Copy) {
+//     from "$buildDir/outputs/bundle/release"
+//     into "$buildDir/outputs/bundle/release"
+    
+//     def formattedDate = new Date().format('ddMMyyyy')
+
+//     rename 'app-release.aab', "RnExample-${formattedDate}-${android.defaultConfig.versionName}.aab"
+// }
+
+// task deleteOriginalBundleFile(type: Delete) {
+//     delete fileTree("$buildDir/outputs/bundle/release").matching {
+//         include "app-release.aab"
+//     }
+// }
+
+// In this example the output file name will be something like 1.5.11.aab Then we can combine those tasks
+// together into publishRelease task which will be used for publishing the App:
+
+// task publishRelease(type: GradleBuild) {
+//     tasks = ['clean', 'assembleRelease', 'bundleRelease', 'renameBundle', 'deleteOriginalBundleFile']
+// }
 
 apply from: file('../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle'); applyNativeModulesAppBuildGradle(project)
