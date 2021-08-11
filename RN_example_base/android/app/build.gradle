@@ -184,9 +184,6 @@ android {
                 unstrippedNativeLibsDir 'build/intermediates/merged_native_libs/release/out/lib'
             }
 
-            // reduce app size
-            shrinkResources true
-
             // config output app
             applicationVariants.all { variant ->
             variant.outputs.all {
