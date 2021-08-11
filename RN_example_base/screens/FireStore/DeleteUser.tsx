@@ -24,6 +24,7 @@ export const DeleteUser = props => {
         .delete()
         .then(() => {
           Alert.alert(
+            'Warning',
             'Success',
             'Deleted Successfully',
             [
@@ -37,6 +38,7 @@ export const DeleteUser = props => {
         })
         .catch(error => {
           Alert.alert(
+            'Warning',
             'Exception',
             error,
             [
@@ -49,7 +51,7 @@ export const DeleteUser = props => {
           );
         });
     } else {
-      alert('Please Enter ID');
+      Alert.alert('Warning', 'Please Enter ID');
     }
   };
 

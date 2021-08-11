@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {View, ALert} from 'react-native';
 import Mytextinput from '../Components/Mytextinput';
 import Mybutton from '../Components/Mybutton';
 import firestore from '@react-native-firebase/firestore';
@@ -51,10 +51,10 @@ export const AddOrderSummary = () => {
         newOrderCollection
           .add(item)
           .then(() => {
-            alert('Added Successfully');
+            Alert.alert('Warning', 'Added Successfully');
           })
           .catch(error => {
-            alert(`Exception: ${error}`);
+            Alert.alert('Warning', `Exception: ${error}`);
           });
       });
     }

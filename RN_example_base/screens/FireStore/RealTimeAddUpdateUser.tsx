@@ -6,6 +6,7 @@ import {
   Text,
   ScrollView,
   TextInput,
+  Alert,
 } from 'react-native';
 
 import Mybutton from '../Components/Mybutton';
@@ -63,10 +64,10 @@ export const RealTimeAddUpdateUser = () => {
       })
       .then(() => {
         setInputDoc('');
-        alert('Added');
+        Alert.alert('Warning', 'Added');
       })
       .catch(error => {
-        alert(`Exception: ${error}`);
+        Alert.alert('Warning', `Exception: ${error}`);
       });
   };
 
@@ -76,7 +77,7 @@ export const RealTimeAddUpdateUser = () => {
       .doc(oldDoc)
       .delete()
       .catch(error => {
-        alert(`Exception: ${error}`);
+        Alert.alert('Warning', `Exception: ${error}`);
       });
   };
 

@@ -5,11 +5,11 @@ import Mybutton from '../Components/Mybutton';
 import firestore from '@react-native-firebase/firestore';
 
 export const RegisterUser = props => {
-  let [userName, setUserName] = useState('');
-  let [userContact, setUserContact] = useState('');
-  let [userAddress, setUserAddress] = useState('');
+  let [userName, setUserName] = useState('acancsancslancsa');
+  let [userContact, setUserContact] = useState('90371094719047109');
+  let [userAddress, setUserAddress] = useState('kaclkasncnanlcankclsa');
 
-  const handleRegistration = () => {
+  const handleRegistration = async () => {
     if (userName && userContact && userAddress) {
       /*
         "add()" method adds the new document with a random unique ID
@@ -26,39 +26,47 @@ export const RegisterUser = props => {
           console.log('User added!');
         });
       */
-      firestore()
-        .collection('Users')
-        .add({
-          name: userName,
-          contact: userContact,
-          address: userAddress,
-        })
-        .then(() => {
-          Alert.alert(
-            'Success',
-            'You are Registered Successfully',
-            [
-              {
-                text: 'Ok',
-                onPress: () => props.navigation.navigate('FileStore'),
-              },
-            ],
-            {cancelable: false},
-          );
-        })
-        .catch(error => {
-          Alert.alert(
-            'Exception',
-            error,
-            [
-              {
-                text: 'Ok',
-                onPress: () => props.navigation.navigate('FileStore'),
-              },
-            ],
-            {cancelable: false},
-          );
-        });
+      let save = await firestore().collection('Users').add({
+        name: userName,
+        contact: userContact,
+        address: userAddress,
+      });
+      console.log('===================================');
+      console.log(save);
+      console.log('===================================');
+      // firestore().collection('Users').add({
+      //   name: userName,
+      //   contact: userContact,
+      //   address: userAddress,
+      // }).then(res => {
+      //   console.log('===================================');
+      //   console.log(res);
+      //   console.log('===================================');
+      //   Alert.alert(
+      //     'Success',
+      //     'You are Registered Successfully',
+      //     [
+      //       {
+      //         text: 'Ok',
+      //         onPress: () => props.navigation.navigate('FileStore'),
+      //       },
+      //     ],
+      //     {cancelable: false},
+      //   );
+      // })
+      // .catch(error => {
+      //   Alert.alert(
+      //     'Exception',
+      //     error.toString(),
+      //     [
+      //       {
+      //         text: 'Ok',
+      //         onPress: () => props.navigation.navigate('FileStore'),
+      //       },
+      //     ],
+      //     {cancelable: false},
+      //   );
+      // });
 
       /*
         You can also add the data using set instead of push
@@ -100,11 +108,13 @@ export const RegisterUser = props => {
           <Mytextinput
             placeholder="Enter Name"
             onChangeText={userName => setUserName(userName)}
+            value={userName}
             style={{padding: 10}}
           />
           <Mytextinput
             placeholder="Enter Contact No"
             onChangeText={userContact => setUserContact(userContact)}
+            value={userContact}
             maxLength={10}
             keyboardType="numeric"
             style={{padding: 10}}
@@ -112,10 +122,14 @@ export const RegisterUser = props => {
           <Mytextinput
             placeholder="Enter Address"
             onChangeText={userAddress => setUserAddress(userAddress)}
+            value={userAddress}
             maxLength={225}
             numberOfLines={5}
             multiline={true}
-            style={{textAlignVertical: 'top', padding: 10}}
+            style={{
+              textAlignVertical: 'top',
+              padding: 10,
+            }}
           />
           <Mybutton title="Submit" customClick={handleRegistration} />
         </KeyboardAvoidingView>

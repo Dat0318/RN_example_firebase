@@ -16,7 +16,6 @@ import {ImageMap} from './ImageMapper';
 import {SwipeCard} from './SwipeCard';
 import {AccordionSection} from './Accordion';
 import {AlphabetContacts} from './AlphabetContacts';
-import {FileStore} from './FileStore';
 import {
   GoogleLoginScreen,
   GDUploadFileScreen,
@@ -34,6 +33,10 @@ import {
   ViewAllUser,
   ViewUser,
 } from './FireStore';
+import {FileStore} from './FileStore';
+import {Storage} from './Storage';
+import {FilesListingScreen, UploadFileScreen} from './Storage/index';
+import {InAppMessage} from './InAppMessage';
 
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -79,7 +82,7 @@ export function Navigation() {
         component={GDDownloadFileScreen}
       />
 
-      {/* Firebase Store */}
+      {/* Firebase FileStore Database */}
       <Stack.Screen name="FileStore" component={FileStore} />
       <Stack.Screen name="RegisterUser" component={RegisterUser} />
       <Stack.Screen name="UpdateUser" component={UpdateUser} />
@@ -91,6 +94,13 @@ export function Navigation() {
         component={RealTimeAddUpdateUser}
       />
       <Stack.Screen name="AddOrderSummary" component={AddOrderSummary} />
+
+      {/* Firebase storage */}
+      <Stack.Screen name="Storage" component={Storage} />
+      <Stack.Screen name="UploadFileScreen" component={UploadFileScreen} />
+      <Stack.Screen name="FilesListingScreen" component={FilesListingScreen} />
+      {/* Firebase In App Message */}
+      <Stack.Screen name="InAppMessage" component={InAppMessage} />
     </Stack.Navigator>
   );
 }

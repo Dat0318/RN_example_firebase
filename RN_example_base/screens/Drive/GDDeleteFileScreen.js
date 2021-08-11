@@ -31,7 +31,7 @@ const GDDeleteFileScreen = () => {
   const _initGoogleDrive = async () => {
     // Getting Access Token from Google
     let token = await GoogleSignin.getTokens();
-    if (!token) return alert('Failed to get token');
+    if (!token) return Alert.alert('Warning', 'Failed to get token');
     console.log('res.accessToken 2=>', token?.setAccessToken);
     // Setting Access Token
     GDrive.setAccessToken(token?.setAccessToken);
@@ -45,7 +45,7 @@ const GDDeleteFileScreen = () => {
     setLoading(true);
     try {
       if (!(await _initGoogleDrive())) {
-        return alert('Failed to Initialize Google Drive');
+        return Alert.alert('Warning', 'Failed to Initialize Google Drive');
       }
       // Create/Get Directory on Google Device
       let directoryId = await GDrive.files.safeCreateFolder({
@@ -62,7 +62,7 @@ const GDDeleteFileScreen = () => {
       setListData(result.files);
     } catch (error) {
       console.log('Error->', error);
-      alert(`Error-> ${error}`);
+      Alert.alert('Warning', `Error-> ${error}`);
     }
     setLoading(false);
   };
@@ -71,7 +71,7 @@ const GDDeleteFileScreen = () => {
     try {
       setLoading(true);
       if (!(await _initGoogleDrive())) {
-        return alert('Failed to Initialize Google Drive');
+        return Alert.alert('Warning', 'Failed to Initialize Google Drive');
       }
       // Create/Get Directory on Google Device
       let directoryId = await GDrive.files.safeCreateFolder({
@@ -81,11 +81,11 @@ const GDDeleteFileScreen = () => {
       console.log('directoryId -> ', directoryId);
       let result = await GDrive.files.delete(item.id);
       if (!result.ok) {
-        alert('File Deletion Failed');
+        Alert.alert('Warning', 'File Deletion Failed');
       }
       _getAllMyAppFilesList();
     } catch (error) {
-      alert(error);
+      Alert.alert('Warning', error);
       console.log(error);
     }
     setLoading(false);
@@ -122,6 +122,7 @@ const GDDeleteFileScreen = () => {
 
   const getItem = item => {
     Alert.alert(
+      'Warning',
       'Warning',
       'Are you sure you want to delete the file from Google Drive?',
       [

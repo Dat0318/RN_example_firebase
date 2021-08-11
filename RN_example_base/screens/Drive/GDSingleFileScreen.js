@@ -8,6 +8,7 @@ import {
   View,
   ActivityIndicator,
   FlatList,
+  Alert,
 } from 'react-native';
 
 // For Google Signin
@@ -30,7 +31,7 @@ const GDSingleFileScreen = () => {
   const _initGoogleDrive = async () => {
     // Getting Access Token from Google
     let token = await GoogleSignin.getTokens();
-    if (!token) return alert('Failed to get token');
+    if (!token) return Alert.alert('Warning', 'Failed to get token');
     console.log('res.accessToken 5=>', token?.setAccessToken);
     // Setting Access Token
     GDrive.setAccessToken(token?.setAccessToken);
@@ -43,7 +44,7 @@ const GDSingleFileScreen = () => {
   const _getAllMyAppFilesList = async () => {
     try {
       if (!(await _initGoogleDrive())) {
-        return alert('Failed to Initialize Google Drive');
+        return Alert.alert('Warning', 'Failed to Initialize Google Drive');
       }
       // Create/Get Directory on Google Device
       let directoryId = await GDrive.files.safeCreateFolder({
@@ -67,7 +68,7 @@ const GDSingleFileScreen = () => {
       setListData(result.files);
     } catch (error) {
       console.log('Error->', error);
-      alert(`Error-> ${error}`);
+      Alert.alert('Warning', `Error-> ${error}`);
     }
     setLoading(false);
   };
@@ -108,20 +109,23 @@ const GDSingleFileScreen = () => {
         item.mimeType == 'application/json'
       )
     )
-      return alert('Sorry we only deal with the text files, Not in binaries');
+      return Alert.alert(
+        'Warning',
+        'Sorry we only deal with the text files, Not in binaries',
+      );
     setLoading(true);
     try {
       if (!(await _initGoogleDrive())) {
-        return alert('Failed to Initialize Google Drive');
+        return Alert.alert('Warning', 'Failed to Initialize Google Drive');
       }
       let result = await GDrive.files.get(item.id, {alt: 'media'});
       if (result.ok) {
         result = await result.text();
         console.log('File Content: ' + result);
-        alert('File Content: ' + result);
+        Alert.alert('Warning', 'File Content: ' + result);
       }
     } catch (error) {
-      alert(error);
+      Alert.alert('Warning', error);
       console.log(error);
     }
     setLoading(false);

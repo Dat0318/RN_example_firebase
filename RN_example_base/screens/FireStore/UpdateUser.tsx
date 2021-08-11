@@ -5,7 +5,7 @@ import Mybutton from '../Components/Mybutton';
 import firestore from '@react-native-firebase/firestore';
 
 export const UpdateUser = props => {
-  let [userId, setUserId] = useState('');
+  let [userId, setUserId] = useState('zbMVKUKV7ZTa4UL6vZ7i');
   let [userName, setUserName] = useState('');
   let [userContact, setUserContact] = useState('');
   let [userAddress, setUserAddress] = useState('');
@@ -55,6 +55,7 @@ export const UpdateUser = props => {
         })
         .then(() => {
           Alert.alert(
+            'Warning',
             'Success',
             'Updated Successfully',
             [
@@ -68,6 +69,7 @@ export const UpdateUser = props => {
         })
         .catch(error => {
           Alert.alert(
+            'Warning',
             'Exception',
             error,
             [
@@ -80,7 +82,7 @@ export const UpdateUser = props => {
           );
         });
     } else {
-      alert('Please fill all fields');
+      Alert.alert('Warning', 'Please fill all fields');
     }
   };
 

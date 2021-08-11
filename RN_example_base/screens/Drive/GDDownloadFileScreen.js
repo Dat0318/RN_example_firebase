@@ -8,6 +8,7 @@ import {
   View,
   ActivityIndicator,
   FlatList,
+  Alert,
 } from 'react-native';
 
 // For Google Signin
@@ -32,7 +33,7 @@ const GDDownloadFileScreen = () => {
   const _initGoogleDrive = async () => {
     // Getting Access Token from Google
     let token = await GoogleSignin.getTokens();
-    if (!token) return alert('Failed to get token');
+    if (!token) return Alert.alert('Warning', 'Failed to get token');
     console.log('res.accessToken 3=>', token?.setAccessToken);
     // Setting Access Token
     GDrive.setAccessToken(token?.setAccessToken);
@@ -45,7 +46,7 @@ const GDDownloadFileScreen = () => {
   const _getAllMyAppFilesList = async () => {
     try {
       if (!(await _initGoogleDrive())) {
-        return alert('Failed to Initialize Google Drive');
+        return Alert.alert('Warning', 'Failed to Initialize Google Drive');
       }
       // Create/Get Directory on Google Device
       let directoryId = await GDrive.files.safeCreateFolder({
@@ -69,7 +70,7 @@ const GDDownloadFileScreen = () => {
       setListData(result.files);
     } catch (error) {
       console.log('Error->', error);
-      alert(`Error-> ${error}`);
+      Alert.alert('Warning', `Error-> ${error}`);
     }
     setLoading(false);
   };
@@ -117,14 +118,14 @@ const GDDownloadFileScreen = () => {
         if (granted != PermissionsAndroid.RESULTS.GRANTED) return;
       } catch (err) {
         console.warn(err);
-        alert('Write permission err', err);
+        Alert.alert('Warning', 'Write permission err', err);
         return;
       }
     }
 
     try {
       if (!(await _initGoogleDrive())) {
-        return alert('Failed to Initialize Google Drive');
+        return Alert.alert('Warning', 'Failed to Initialize Google Drive');
       }
       console.log(`Destination: ${RNFS.DocumentDirectoryPath}/${item.name}`);
       setLoading(true);
@@ -140,10 +141,10 @@ const GDDownloadFileScreen = () => {
           console.log({res});
           setLoading(false);
           if (res.statusCode == 200 && res.bytesWritten > 0)
-            alert('File download successful');
+            Alert.alert('Warning', 'File download successful');
         });
     } catch (error) {
-      alert(error);
+      Alert.alert('Warning', error);
       console.log(error);
       setLoading(false);
     }

@@ -9,6 +9,7 @@ import {
   Text,
   TouchableOpacity,
   TextInput,
+  Alert,
 } from 'react-native';
 
 export const AlphabetContacts = () => {
@@ -38,7 +39,7 @@ export const AlphabetContacts = () => {
         animated: true,
       });
     } else {
-      alert('Out of Max Index');
+      Alert.alert('Warning', 'Out of Max Index');
     }
   };
 
@@ -75,7 +76,7 @@ export const AlphabetContacts = () => {
 
   const getItem = item => {
     // Function for click on an item
-    alert('Id : ' + item.id + ' Title : ' + item.title);
+    Alert.alert('Warning', 'Id : ' + item.id + ' Title : ' + item.title);
   };
 
   return (

@@ -26,6 +26,7 @@
     "postinstall": "npx jetify"
   },
   "dependencies": {
+    "@flyerhq/react-native-android-uri-path": "^2.1.2",
     "@georstat/react-native-image-cache": "^1.2.7",
     "@invertase/react-native-apple-authentication": "^2.1.2",
     "@react-native-community/geolocation": "^2.0.2",

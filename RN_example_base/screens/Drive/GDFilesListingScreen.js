@@ -8,6 +8,7 @@ import {
   View,
   ActivityIndicator,
   FlatList,
+  Alert,
 } from 'react-native';
 
 // For Google Signin
@@ -31,7 +32,7 @@ const GDFilesListingScreen = ({route}) => {
   const _initGoogleDrive = async () => {
     // Getting Access Token from Google
     let token = await GoogleSignin.getTokens();
-    if (!token) return alert('Failed to get token');
+    if (!token) return Alert.alert('Warning', 'Failed to get token');
     console.log('res.accessToken 4=>', token?.setAccessToken);
     // Setting Access Token
     GDrive.setAccessToken(token?.setAccessToken);
@@ -44,7 +45,7 @@ const GDFilesListingScreen = ({route}) => {
   const _getAllFilesList = async () => {
     try {
       if (!(await _initGoogleDrive())) {
-        return alert('Failed to Initialize Google Drive');
+        return Alert.alert('Warning', 'Failed to Initialize Google Drive');
       }
       let data = await GDrive.files.list({
         q: GDrive._stringifyQueryParams({trashed: false}, '', ' and ', true),
@@ -53,7 +54,7 @@ const GDFilesListingScreen = ({route}) => {
       setListData(result.files);
     } catch (error) {
       console.log('Error->', error);
-      alert(`Error-> ${error}`);
+      Alert.alert('Warning', `Error-> ${error}`);
     }
     setLoading(false);
   };
@@ -61,7 +62,7 @@ const GDFilesListingScreen = ({route}) => {
   const _getAllMyAppFilesList = async () => {
     try {
       if (!(await _initGoogleDrive())) {
-        return alert('Failed to Initialize Google Drive');
+        return Alert.alert('Warning', 'Failed to Initialize Google Drive');
       }
       // Create/Get Directory on Google Device
       let directoryId = await GDrive.files.safeCreateFolder({
@@ -85,7 +86,7 @@ const GDFilesListingScreen = ({route}) => {
       setListData(result.files);
     } catch (error) {
       console.log('Error->', error);
-      alert(`Error-> ${error}`);
+      Alert.alert('Warning', `Error-> ${error}`);
     }
     setLoading(false);
   };
@@ -120,7 +121,7 @@ const GDFilesListingScreen = ({route}) => {
 
   const getItem = item => {
     //Function for click on an item
-    alert(JSON.stringify(item));
+    Alert.alert('Warning', JSON.stringify(item));
   };
 
   return (

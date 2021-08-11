@@ -9,6 +9,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   TextInput,
+  Alert,
 } from 'react-native';
 
 // For Google Signin
@@ -42,7 +43,8 @@ const GDUploadFileScreen = () => {
     } catch (error) {
       setFilePath({});
       // If user canceled the document selection
-      alert(
+      Alert.alert(
+        'Warning',
         DocumentPicker.isCancel(error)
           ? 'Canceled'
           : 'Unknown Error: ' + JSON.stringify(error),
@@ -54,7 +56,7 @@ const GDUploadFileScreen = () => {
     // Getting Access Token from Google
     let token = await GoogleSignin.getTokens();
     console.log('token: ', token);
-    if (!token) return alert('Failed to get token');
+    if (!token) return Alert.alert('Warning', 'Failed to get token');
     console.log('res.accessToken 1=>', token?.accessToken);
     // Setting Access Token
     GDrive.setAccessToken(token?.accessToken);
@@ -68,10 +70,10 @@ const GDUploadFileScreen = () => {
     try {
       // Check if file selected
       if (Object.keys(filePath).length == 0)
-        return alert('Please Select any File');
+        return Alert.alert('Warning', 'Please Select any File');
       setLoading(true);
       if (!(await _initGoogleDrive())) {
-        return alert('Failed to Initialize Google Drive');
+        return Alert.alert('Warning', 'Failed to Initialize Google Drive');
       }
       // Convert Selected File into base64
       let fileContent = await RNFS.readFile(filePath.uri, 'base64');
@@ -93,7 +95,7 @@ const GDUploadFileScreen = () => {
         true,
       );
       // Check upload file response for success
-      if (!result.ok) return alert('Uploading Failed');
+      if (!result.ok) return Alert.alert('Warning', 'Uploading Failed');
       // Getting the uploaded File Id
       let fileId = await GDrive.files.getId(
         filePath.name,
@@ -101,11 +103,11 @@ const GDUploadFileScreen = () => {
         filePath.type,
         false,
       );
-      alert(`Uploaded Successfull. File Id: ${fileId}`);
+      Alert.alert('Warning', `Uploaded Successfull. File Id: ${fileId}`);
       setFilePath({});
     } catch (error) {
       console.log('Error->', error);
-      alert(`Error-> ${error}`);
+      Alert.alert('Warning', `Error-> ${error}`);
     }
     setLoading(false);
   };
@@ -113,10 +115,11 @@ const GDUploadFileScreen = () => {
   const _uploadDriveData = async () => {
     try {
       // Check if file selected
-      if (!inputTextValue) return alert('Please Enter Some Input');
+      if (!inputTextValue)
+        return Alert.alert('Warning', 'Please Enter Some Input');
       setLoading(true);
       if (!(await _initGoogleDrive())) {
-        return alert('Failed to Initialize Google Drive');
+        return Alert.alert('Warning', 'Failed to Initialize Google Drive');
       }
       // Create Directory on Google Device
       let directoryId = await GDrive.files.safeCreateFolder({
@@ -136,7 +139,7 @@ const GDUploadFileScreen = () => {
         false,
       );
       // Check upload file response for success
-      if (!result.ok) return alert('Uploading Failed');
+      if (!result.ok) return Alert.alert('Warning', 'Uploading Failed');
       // Getting the uploaded File Id
       let fileId = await GDrive.files.getId(
         fileName,
@@ -145,10 +148,10 @@ const GDUploadFileScreen = () => {
         false,
       );
       setInputTextValue('');
-      alert(`Uploaded Successfull. File Id: ${fileId}`);
+      Alert.alert('Warning', `Uploaded Successfull. File Id: ${fileId}`);
     } catch (error) {
       console.log('Error->', error);
-      alert(`Error-> ${error}`);
+      Alert.alert('Warning', `Error-> ${error}`);
     }
     setLoading(false);
   };

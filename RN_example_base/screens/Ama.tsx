@@ -24,16 +24,16 @@ export const Ama = () => {
       console.log('Response = ', response);
       setUploadSuccessMessage('');
       if (response.didCancel) {
-        Alert.alert('User', 'User cancelled camera picker');
+        Alert.alert('Warning', 'User', 'User cancelled camera picker');
         return;
       } else if (response.errorCode == 'camera_unavailable') {
-        Alert.alert('Title', 'Camera not available on device');
+        Alert.alert('Warning', 'Title', 'Camera not available on device');
         return;
       } else if (response.errorCode == 'permission') {
-        Alert.alert('Title', 'Permission not satisfied');
+        Alert.alert('Warning', 'Title', 'Permission not satisfied');
         return;
       } else if (response.errorCode == 'others') {
-        Alert.alert('Title', response.errorMessage);
+        Alert.alert('Warning', 'Title', response.errorMessage);
         return;
       }
       setFilePath(response);
@@ -42,7 +42,7 @@ export const Ama = () => {
 
   const uploadFile = () => {
     if (Object.keys(filePath).length == 0) {
-      Alert.alert('Please select image first');
+      Alert.alert('Warning', 'Please select image first');
       return;
     }
     RNS3.put(
@@ -71,7 +71,8 @@ export const Ama = () => {
         ),
       )
       .then(response => {
-        if (response.status !== 201) alert('Failed to upload image to S3');
+        if (response.status !== 201)
+          Alert.alert('Warning', 'Failed to upload image to S3');
         console.log(response.body);
         setFilePath('');
         let {bucket, etag, key, location} = response.body.postResponse;

@@ -45,6 +45,18 @@ export const List = () => {
         <Text style={styles.buttonText}>FileStore</Text>
       </TouchableOpacity>
       <TouchableOpacity
+        onPress={() => _navigate('InAppMessage')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>InAppMessage</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('Storage')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>Firebase Storage</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
         onPress={() => _navigate('Analytics')}
         style={styles.button}
         activeOpacity={1}>
