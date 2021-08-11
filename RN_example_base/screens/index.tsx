@@ -37,6 +37,7 @@ import {FileStore} from './FileStore';
 import {Storage} from './Storage';
 import {FilesListingScreen, UploadFileScreen} from './Storage/index';
 import {InAppMessage} from './InAppMessage';
+import {Crashlytics} from './Crashlytics';
 
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -101,6 +102,8 @@ export function Navigation() {
       <Stack.Screen name="FilesListingScreen" component={FilesListingScreen} />
       {/* Firebase In App Message */}
       <Stack.Screen name="InAppMessage" component={InAppMessage} />
+      {/* Firebase Crashlytics */}
+      <Stack.Screen name="Crashlytics" component={Crashlytics} />
     </Stack.Navigator>
   );
 }

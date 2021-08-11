@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {
   StyleSheet,
   View,
@@ -55,6 +55,12 @@ export const List = () => {
         style={styles.button}
         activeOpacity={1}>
         <Text style={styles.buttonText}>Firebase Storage</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('Crashlytics')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>Crashlytics</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => _navigate('Analytics')}

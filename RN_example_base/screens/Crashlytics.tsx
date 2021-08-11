@@ -11,11 +11,11 @@ import {
 
 import crashlytics from '@react-native-firebase/crashlytics';
 
-const App = () => {
+export const Crashlytics = () => {
   const [userCounts, setUserCounts] = useState(null);
 
   useEffect(() => {
-    crashlytics().log('App mounted.');
+    crashlytics().log('Crashlytics mounted.');
   }, []);
 
   const logCrashlytics = async () => {
@@ -24,8 +24,8 @@ const App = () => {
       crashlytics().setUserId('101'),
       crashlytics().setAttribute('credits', String(50)),
       crashlytics().setAttributes({
-        email: 'aboutreact11@gmail.com',
-        username: 'aboutreact11',
+        email: 'datd@vmodev.com',
+        username: 'datd',
       }),
     ]);
   };
@@ -51,7 +51,7 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.titleText}>
-        How to Add Firebase Crashlytics in React Native App
+        How to Add Firebase Crashlytics in React Native Crashlytics
       </Text>
       <View style={styles.innerContainer}>
         <TouchableOpacity
@@ -77,7 +77,7 @@ const App = () => {
   );
 };
 
-export default App;
+export default Crashlytics;
 
 const styles = StyleSheet.create({
   container: {

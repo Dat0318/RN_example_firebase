@@ -197,6 +197,7 @@ dependencies {
     // add firebase
     implementation platform('com.google.firebase:firebase-bom:28.2.1')
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
     implementation 'com.android.support:multidex:1.0.3'
     // end add firebase
     implementation fileTree(dir: 'libs', include: ['*.jar'])
