@@ -239,6 +239,10 @@ export const List = () => {
         activeOpacity={1}>
         <Text style={styles.buttonText}>SpeedToText</Text>
       </TouchableOpacity>
+
+      <View style={styles.buttonTtl}>
+        <Text style={styles.buttonText}>Some Function</Text>
+      </View>
       <TouchableOpacity
         onPress={() => _navigate('Brightness')}
         style={styles.button}
@@ -264,28 +268,28 @@ export const List = () => {
         <Text style={styles.buttonText}>RnSendSMS</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => _navigate('SendSMS')}
+        onPress={() => _navigate('CallDetective')}
         style={styles.button}
         activeOpacity={1}>
-        <Text style={styles.buttonText}>SendSMS</Text>
+        <Text style={styles.buttonText}>CallDetective</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => _navigate('SendSMS')}
+        onPress={() => _navigate('RnCommunity')}
         style={styles.button}
         activeOpacity={1}>
-        <Text style={styles.buttonText}>SendSMS</Text>
+        <Text style={styles.buttonText}>RnCommunity</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => _navigate('SendSMS')}
+        onPress={() => _navigate('CallLogAndroid')}
         style={styles.button}
         activeOpacity={1}>
-        <Text style={styles.buttonText}>SendSMS</Text>
+        <Text style={styles.buttonText}>CallLogAndroid</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => _navigate('SendSMS')}
+        onPress={() => _navigate('Realm')}
         style={styles.button}
         activeOpacity={1}>
-        <Text style={styles.buttonText}>SendSMS</Text>
+        <Text style={styles.buttonText}>Realm</Text>
       </TouchableOpacity>
     </ScrollView>
   );

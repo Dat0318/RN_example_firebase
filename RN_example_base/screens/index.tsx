@@ -58,6 +58,9 @@ import {Signature} from './Signature';
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {SendSMS} from './SendSMS';
+import {CallDetective} from './CallDetective';
+import {RnCommunity} from './RnCommunity';
+import {CallLogAndroid} from './CallLogAndroid';
 
 const Stack = createStackNavigator();
 
@@ -152,6 +155,11 @@ export function Navigation() {
       {/* Signature */}
       <Stack.Screen name="Signature" component={Signature} />
       <Stack.Screen name="RnSendSMS" component={RnSendSMS} />
+      {/* SendSMS */}
+      <Stack.Screen name="SendSMS" component={SendSMS} />
+      <Stack.Screen name="CallDetective" component={CallDetective} />
+      <Stack.Screen name="RnCommunity" component={RnCommunity} />
+      <Stack.Screen name="CallLogAndroid" component={CallLogAndroid} />
     </Stack.Navigator>
   );
 }
