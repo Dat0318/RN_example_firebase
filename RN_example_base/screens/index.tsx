@@ -38,6 +38,9 @@ import {Storage} from './Storage';
 import {FilesListingScreen, UploadFileScreen} from './Storage/index';
 import {InAppMessage} from './InAppMessage';
 import {Crashlytics} from './Crashlytics';
+import {AdMod} from './AdMod';
+import {Performance} from './Performance';
+import {FirebaseAuth, Login, Register} from './Auth/index';
 
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -104,6 +107,14 @@ export function Navigation() {
       <Stack.Screen name="InAppMessage" component={InAppMessage} />
       {/* Firebase Crashlytics */}
       <Stack.Screen name="Crashlytics" component={Crashlytics} />
+      {/* Firebase AdMod */}
+      <Stack.Screen name="AdMod" component={AdMod} />
+      {/* Firebase Performance */}
+      <Stack.Screen name="Performance" component={Performance} />
+      {/* FirebaseAuth */}
+      <Stack.Screen name="FirebaseAuth" component={FirebaseAuth} />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Register" component={Register} />
     </Stack.Navigator>
   );
 }

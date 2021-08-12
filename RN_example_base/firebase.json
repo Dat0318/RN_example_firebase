@@ -3,6 +3,10 @@
     "in_app_messaging_auto_collection_enabled": false,
     "analytics_auto_collection_enabled": false,
     "android_task_executor_maximum_pool_size": 10,
-    "android_task_executor_keep_alive_seconds": 3
+    "android_task_executor_keep_alive_seconds": 3,
+    "admob_android_app_id": "ca-app-pub-5461633162389525~5016948109",
+    "admob_ios_app_id": "ca-app-pub-5461633162389525~5016948109",
+    "database_persistence_enabled": true,
+    "perf_auto_collection_enabled": false
   }
 }

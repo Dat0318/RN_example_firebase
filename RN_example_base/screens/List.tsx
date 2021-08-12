@@ -33,6 +33,12 @@ export const List = () => {
         <Text style={styles.buttonText}>Auth</Text>
       </TouchableOpacity>
       <TouchableOpacity
+        onPress={() => _navigate('Login')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>FirebaseAuth</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
         onPress={() => _navigate('CacheImage')}
         style={styles.button}
         activeOpacity={1}>
@@ -69,10 +75,22 @@ export const List = () => {
         <Text style={styles.buttonText}>Analytics</Text>
       </TouchableOpacity>
       <TouchableOpacity
+        onPress={() => _navigate('AdMod')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>AdMod</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
         onPress={() => _navigate('DynamicLinks')}
         style={styles.button}
         activeOpacity={1}>
         <Text style={styles.buttonText}>DynamicLinks</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('Performance')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>Performance</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => _navigate('RealTime')}
