@@ -191,6 +191,102 @@ export const List = () => {
         activeOpacity={1}>
         <Text style={styles.buttonText}>PieChart</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('ChartKit')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>ChartKit</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('GenQR')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>GenQR</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('ShareQR')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>ShareQR</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('Md5')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>Md5</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('RnSound')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>RnSound</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('RnVideo')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>RnVideo</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('TextToSpeed')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>TextToSpeed</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('SpeedToText')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>SpeedToText</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('Brightness')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>Brightness</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('RnKeepAwake')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>RnKeepAwake</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('Signature')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>Signature</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('RnSendSMS')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>RnSendSMS</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('SendSMS')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>SendSMS</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('SendSMS')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>SendSMS</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('SendSMS')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>SendSMS</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('SendSMS')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>SendSMS</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 };

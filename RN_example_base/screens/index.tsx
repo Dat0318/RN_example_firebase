@@ -42,9 +42,22 @@ import {AdMod} from './AdMod';
 import {Performance} from './Performance';
 import {FirebaseAuth, Login, Register} from './Auth/index';
 import {PieChart} from './PieChart';
+import {ChartKit} from './ChartKit';
+import {GenQR} from './GenQR';
+import {ShareQR} from './ShareQR';
+import {Md5} from './Md5';
+import {RnSound} from './Sound';
+import {RnVideo} from './RnVideo';
+import {TextToSpeed} from './TextToSpeed';
+import {SpeedToText} from './SpeedToText';
+import {Brightness} from './Brightness';
+import {RnKeepAwake} from './KeepAwake';
+import {RnSendSMS} from './RnSendSMS';
+import {Signature} from './Signature';
 
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import {SendSMS} from './SendSMS';
 
 const Stack = createStackNavigator();
 
@@ -118,6 +131,27 @@ export function Navigation() {
       <Stack.Screen name="Register" component={Register} />
       {/* PieChart */}
       <Stack.Screen name="PieChart" component={PieChart} />
+      {/* ChartKit */}
+      <Stack.Screen name="ChartKit" component={ChartKit} />
+      {/* ShareQR */}
+      <Stack.Screen name="ShareQR" component={ShareQR} />
+      <Stack.Screen name="GenQR" component={GenQR} />
+      {/* Md5 */}
+      <Stack.Screen name="Md5" component={Md5} />
+      {/* RnSound */}
+      <Stack.Screen name="RnSound" component={RnSound} />
+      {/* RnVideo */}
+      <Stack.Screen name="RnVideo" component={RnVideo} />
+      {/* SpeedToText */}
+      <Stack.Screen name="SpeedToText" component={SpeedToText} />
+      <Stack.Screen name="TextToSpeed" component={TextToSpeed} />
+      {/* Brightness */}
+      <Stack.Screen name="Brightness" component={Brightness} />
+      {/* RnKeepAwake */}
+      <Stack.Screen name="RnKeepAwake" component={RnKeepAwake} />
+      {/* Signature */}
+      <Stack.Screen name="Signature" component={Signature} />
+      <Stack.Screen name="RnSendSMS" component={RnSendSMS} />
     </Stack.Navigator>
   );
 }
