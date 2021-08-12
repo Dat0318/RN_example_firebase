@@ -98,6 +98,7 @@ export const List = () => {
         activeOpacity={1}>
         <Text style={styles.buttonText}>RealTime</Text>
       </TouchableOpacity>
+
       <View style={styles.buttonTtl}>
         <Text style={styles.buttonText}>About React</Text>
       </View>
@@ -180,11 +181,15 @@ export const List = () => {
         activeOpacity={1}>
         <Text style={styles.buttonText}>AlphabetContacts</Text>
       </TouchableOpacity>
+
+      <View style={styles.buttonTtl}>
+        <Text style={styles.buttonText}>Useful Component</Text>
+      </View>
       <TouchableOpacity
-        onPress={() => _navigate('AlphabetContacts')}
+        onPress={() => _navigate('PieChart')}
         style={styles.button}
         activeOpacity={1}>
-        <Text style={styles.buttonText}>AlphabetContacts</Text>
+        <Text style={styles.buttonText}>PieChart</Text>
       </TouchableOpacity>
     </ScrollView>
   );

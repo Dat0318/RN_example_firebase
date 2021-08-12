@@ -41,6 +41,7 @@ import {Crashlytics} from './Crashlytics';
 import {AdMod} from './AdMod';
 import {Performance} from './Performance';
 import {FirebaseAuth, Login, Register} from './Auth/index';
+import {PieChart} from './PieChart';
 
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -115,6 +116,8 @@ export function Navigation() {
       <Stack.Screen name="FirebaseAuth" component={FirebaseAuth} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Register" component={Register} />
+      {/* PieChart */}
+      <Stack.Screen name="PieChart" component={PieChart} />
     </Stack.Navigator>
   );
 }
