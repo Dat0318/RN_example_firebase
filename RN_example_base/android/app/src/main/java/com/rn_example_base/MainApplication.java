@@ -14,6 +14,7 @@ import java.util.List;
 // Strust SSl 1.3 in android 9
 import java.security.Security;
 
+import com.rn_example_base.MySendSmsPackage;  // Send message
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -30,6 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
+          packages.add(new MySendSmsPackage());
           return packages;
         }
 
