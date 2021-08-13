@@ -14,6 +14,8 @@ import {
 } from 'react-native';
 
 var DirectSms = NativeModules.DirectSms;
+const {CalendarModule} = NativeModules;
+const {DEFAULT_EVENT_NAME} = CalendarModule.getConstants();
 
 export const SendSMS = () => {
   // Setting up States
@@ -49,6 +51,11 @@ export const SendSMS = () => {
     }
   };
 
+  const onPress = () => {
+    CalendarModule.createCalendarEvent('testName', 'testLocation');
+    console.log(DEFAULT_EVENT_NAME);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
@@ -75,6 +82,14 @@ export const SendSMS = () => {
           style={styles.buttonStyle}
           onPress={sendDirectSms}>
           <Text style={styles.buttonTextStyle}>Send Message</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.7}
+          style={styles.buttonStyle}
+          onPress={onPress}>
+          <Text style={styles.buttonTextStyle}>
+            Test New Calendar native code
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

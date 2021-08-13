@@ -8,38 +8,38 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.rn_example_base.MyAppPackage; // new Calendar
+import com.rn_example_base.MySendSmsPackage; // Send message
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
-
 // Strust SSl 1.3 in android 9
 import java.security.Security;
-
-import com.rn_example_base.MySendSmsPackage;  // Send message
+import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
 
-  private final ReactNativeHost mReactNativeHost =
-      new ReactNativeHost(this) {
-        @Override
-        public boolean getUseDeveloperSupport() {
-          return BuildConfig.DEBUG;
-        }
+  private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+    @Override
+    public boolean getUseDeveloperSupport() {
+      return BuildConfig.DEBUG;
+    }
 
-        @Override
-        protected List<ReactPackage> getPackages() {
-          @SuppressWarnings("UnnecessaryLocalVariable")
-          List<ReactPackage> packages = new PackageList(this).getPackages();
-          // Packages that cannot be autolinked yet can be added manually here, for example:
-          // packages.add(new MyReactNativePackage());
-          packages.add(new MySendSmsPackage());
-          return packages;
-        }
+    @Override
+    protected List<ReactPackage> getPackages() {
+      @SuppressWarnings("UnnecessaryLocalVariable")
+      List<ReactPackage> packages = new PackageList(this).getPackages();
+      // Packages that cannot be autolinked yet can be added manually here, for example:
+      // packages.add(new MyReactNativePackage());
+      packages.add(new MySendSmsPackage());
+      packages.add(new MyAppPackage());
 
-        @Override
-        protected String getJSMainModuleName() {
-          return "index";
-        }
-      };
+      return packages;
+    }
+
+    @Override
+    protected String getJSMainModuleName() {
+      return "index";
+    }
+  };
 
   @Override
   public ReactNativeHost getReactNativeHost() {
@@ -52,7 +52,7 @@ public class MainApplication extends Application implements ReactApplication {
 
     // Strust SSl 1.3 in android 9
     Security.insertProviderAt(new org.conscrypt.OpenSSLProvider(), 1);
-    SoLoader.init(this, /* native exopackage */ false);
+    SoLoader.init(this, /* native exopackage */false);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
   }
 
@@ -64,17 +64,25 @@ public class MainApplication extends Application implements ReactApplication {
    * @param reactInstanceManager
    */
   private static void initializeFlipper(
-      Context context, ReactInstanceManager reactInstanceManager) {
+    Context context,
+    ReactInstanceManager reactInstanceManager
+  ) {
     if (BuildConfig.DEBUG) {
       try {
         /*
          We use reflection here to pick up the class that initializes Flipper,
         since Flipper library is not available in release mode
         */
-        Class<?> aClass = Class.forName("com.rn_example_base.ReactNativeFlipper");
+        Class<?> aClass = Class.forName(
+          "com.rn_example_base.ReactNativeFlipper"
+        );
         aClass
-            .getMethod("initializeFlipper", Context.class, ReactInstanceManager.class)
-            .invoke(null, context, reactInstanceManager);
+          .getMethod(
+            "initializeFlipper",
+            Context.class,
+            ReactInstanceManager.class
+          )
+          .invoke(null, context, reactInstanceManager);
       } catch (ClassNotFoundException e) {
         e.printStackTrace();
       } catch (NoSuchMethodException e) {

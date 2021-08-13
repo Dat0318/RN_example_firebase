@@ -262,6 +262,14 @@ export const List = () => {
         <Text style={styles.buttonText}>Signature</Text>
       </TouchableOpacity>
       <TouchableOpacity
+        onPress={() => _navigate('SendSMS')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>
+          SendSMS Bridge native android code
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity
         onPress={() => _navigate('RnSendSMS')}
         style={styles.button}
         activeOpacity={1}>

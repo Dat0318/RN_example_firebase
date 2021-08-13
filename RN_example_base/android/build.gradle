@@ -38,5 +38,12 @@ allprojects {
         jcenter()
         maven { url 'https://www.jitpack.io' }
         maven { url = "https://jcenter.bintray.com" }
+        mavenCentral()
+        jcenter {
+        content {
+            //  org.jetbrains.trove4j is only available in JCenter
+            includeGroup("org.jetbrains.trove4j")
+        }
+    }
     }
 }
