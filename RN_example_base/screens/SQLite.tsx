@@ -1,3 +1,8 @@
+// Document to remember:
+// https://aboutreact.com/example-of-pre-populated-sqlite-database-in-react-native/
+// https://aboutreact.com/see-saved-data-of-the-sqlite-database-in-device/
+// https://aboutreact.com/example-of-sqlite-database-in-react-native/
+
 import React, {useEffect} from 'react';
 import {View, SafeAreaView} from 'react-native';
 import Mybutton from './Components/Mybutton';
