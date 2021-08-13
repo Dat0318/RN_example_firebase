@@ -15,7 +15,7 @@ export const SQLiteDeleteUser = ({navigation}) => {
         'DELETE FROM  table_user where user_id=?',
         [inputUserId],
         (tx, results) => {
-          console.log('Results', results.rowsAffected);
+          console.log('Results: ', results, results.rowsAffected);
           if (results.rowsAffected > 0) {
             Alert.alert(
               'Success',

@@ -13,9 +13,11 @@ import {openDatabase} from 'react-native-sqlite-storage';
 var db = openDatabase({name: 'images.db'});
 
 export const SQLiteRegisterUser = ({navigation}) => {
-  let [userName, setUserName] = useState('');
-  let [userContact, setUserContact] = useState('');
-  let [userAddress, setUserAddress] = useState('');
+  let [userName, setUserName] = useState('tran duy dat');
+  let [userContact, setUserContact] = useState('0986419381');
+  let [userAddress, setUserAddress] = useState(
+    'Ta thanh oai, thanh tri, ha noi',
+  );
 
   let register_user = () => {
     console.log(userName, userContact, userAddress);
@@ -38,7 +40,7 @@ export const SQLiteRegisterUser = ({navigation}) => {
         'INSERT INTO table_user (user_name, user_contact, user_address) VALUES (?,?,?)',
         [userName, userContact, userAddress],
         (tx, results) => {
-          console.log('Results', results.rowsAffected);
+          console.log('Results:', results, results.rowsAffected);
           if (results.rowsAffected > 0) {
             Alert.alert(
               'Success',
@@ -67,11 +69,13 @@ export const SQLiteRegisterUser = ({navigation}) => {
               style={{flex: 1, justifyContent: 'space-between'}}>
               <Mytextinput
                 placeholder="Enter Name"
+                value={userName}
                 onChangeText={userName => setUserName(userName)}
                 style={{padding: 10}}
               />
               <Mytextinput
                 placeholder="Enter Contact No"
+                value={userContact}
                 onChangeText={userContact => setUserContact(userContact)}
                 maxLength={10}
                 keyboardType="numeric"
@@ -79,6 +83,7 @@ export const SQLiteRegisterUser = ({navigation}) => {
               />
               <Mytextinput
                 placeholder="Enter Address"
+                value={userAddress}
                 onChangeText={userAddress => setUserAddress(userAddress)}
                 maxLength={225}
                 numberOfLines={5}

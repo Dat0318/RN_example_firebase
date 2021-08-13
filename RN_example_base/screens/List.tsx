@@ -291,6 +291,12 @@ export const List = () => {
         activeOpacity={1}>
         <Text style={styles.buttonText}>RnRealm</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => _navigate('SQLite')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>SQLite</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 };

@@ -40,6 +40,9 @@
 // Owner Email:           support@adamodigital.com
 // Owner Name:            adamodigital
 
+// Kill package
+// adb uninstall com.rn_example_base
+
 'deployment';
 // appcenter codepush deployment add -a dattran0319-gmail.com/RnExampleIos Staging
 // appcenter codepush deployment add -a dattran0319-gmail.com/RnExampleIos Production

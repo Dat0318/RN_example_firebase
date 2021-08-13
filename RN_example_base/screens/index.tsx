@@ -186,11 +186,11 @@ export function Navigation() {
       <Stack.Screen name="RealmViewUser" component={RealmViewUser} />
       {/* SQLite */}
       <Stack.Screen name="SQLite" component={SQLite} />
-      <Stack.Screen name="SQLiteDeleteUser" component={SQLiteDeleteUser} />
-      <Stack.Screen name="SQLiteUpdateUser" component={SQLiteUpdateUser} />
-      <Stack.Screen name="SQLiteViewAllUser" component={SQLiteViewAllUser} />
-      <Stack.Screen name="SQLiteRegisterUser" component={SQLiteRegisterUser} />
-      <Stack.Screen name="SQLiteViewUser" component={SQLiteViewUser} />
+      <Stack.Screen name="SQLiteDelete" component={SQLiteDeleteUser} />
+      <Stack.Screen name="SQLiteUpdate" component={SQLiteUpdateUser} />
+      <Stack.Screen name="SQLiteViewAll" component={SQLiteViewAllUser} />
+      <Stack.Screen name="SQLiteRegister" component={SQLiteRegisterUser} />
+      <Stack.Screen name="SQLiteView" component={SQLiteViewUser} />
     </Stack.Navigator>
   );
 }
