@@ -107,7 +107,6 @@ export const CallDetective = () => {
           <Text style={styles.headerTextLarge}>
             Example to detect call states
           </Text>
-          <Text style={styles.headerText}>www.aboutreact.com</Text>
         </View>
         <FlatList
           style={{flex: 1}}

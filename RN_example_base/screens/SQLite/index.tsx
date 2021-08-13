@@ -1,4 +1,3 @@
-export * from './';
 export * from './DeleteUser';
 export * from './RegisterUser';
 export * from './UpdateUser';

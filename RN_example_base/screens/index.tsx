@@ -61,6 +61,23 @@ import {SendSMS} from './SendSMS';
 import {CallDetective} from './CallDetective';
 import {RnCommunity} from './RnCommunity';
 import {CallLogAndroid} from './CallLogAndroid';
+import {RnRealm} from './Realm';
+import {
+  RealmDeleteUser,
+  RealmRegisterUser,
+  RealmUpdateUser,
+  RealmViewAllUser,
+  RealmViewUser,
+} from './Realm/index';
+
+import {SQLite} from './SQLite';
+import {
+  SQLiteDeleteUser,
+  SQLiteRegisterUser,
+  SQLiteUpdateUser,
+  SQLiteViewAllUser,
+  SQLiteViewUser,
+} from './SQLite/index';
 
 const Stack = createStackNavigator();
 
@@ -160,6 +177,20 @@ export function Navigation() {
       <Stack.Screen name="CallDetective" component={CallDetective} />
       <Stack.Screen name="RnCommunity" component={RnCommunity} />
       <Stack.Screen name="CallLogAndroid" component={CallLogAndroid} />
+      {/* RnRealm */}
+      <Stack.Screen name="RnRealm" component={RnRealm} />
+      <Stack.Screen name="RealmDeleteUser" component={RealmDeleteUser} />
+      <Stack.Screen name="RealmRegisterUser" component={RealmRegisterUser} />
+      <Stack.Screen name="RealmUpdateUser" component={RealmUpdateUser} />
+      <Stack.Screen name="RealmViewAllUser" component={RealmViewAllUser} />
+      <Stack.Screen name="RealmViewUser" component={RealmViewUser} />
+      {/* SQLite */}
+      <Stack.Screen name="SQLite" component={SQLite} />
+      <Stack.Screen name="SQLiteDeleteUser" component={SQLiteDeleteUser} />
+      <Stack.Screen name="SQLiteUpdateUser" component={SQLiteUpdateUser} />
+      <Stack.Screen name="SQLiteViewAllUser" component={SQLiteViewAllUser} />
+      <Stack.Screen name="SQLiteRegisterUser" component={SQLiteRegisterUser} />
+      <Stack.Screen name="SQLiteViewUser" component={SQLiteViewUser} />
     </Stack.Navigator>
   );
 }

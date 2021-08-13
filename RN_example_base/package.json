@@ -58,6 +58,7 @@
     "@types/react-native-html-to-pdf": "^0.8.1",
     "@types/react-native-keep-awake": "^2.0.3",
     "@types/react-native-signature-capture": "^0.4.2",
+    "@types/react-native-sqlite-storage": "^5.0.1",
     "add": "^2.0.6",
     "appcenter-analytics": "^4.2.0",
     "appcenter-crashes": "^4.2.0",

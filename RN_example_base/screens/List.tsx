@@ -286,10 +286,10 @@ export const List = () => {
         <Text style={styles.buttonText}>CallLogAndroid</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => _navigate('Realm')}
+        onPress={() => _navigate('RnRealm')}
         style={styles.button}
         activeOpacity={1}>
-        <Text style={styles.buttonText}>Realm</Text>
+        <Text style={styles.buttonText}>RnRealm</Text>
       </TouchableOpacity>
     </ScrollView>
   );
