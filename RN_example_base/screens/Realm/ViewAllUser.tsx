@@ -14,6 +14,12 @@ export class RealmViewAllUser extends React.Component {
     this.state = {
       FlatListItems: user_details,
     };
+    for (let i = 0; i < user_details.length; i++) {
+      const ele = user_details[i];
+      console.log('==ele=================================');
+      console.log(ele);
+      console.log('===================================');
+    }
   }
   ListViewItemSeparator = () => {
     return (
@@ -27,14 +33,16 @@ export class RealmViewAllUser extends React.Component {
           data={this.state.FlatListItems}
           ItemSeparatorComponent={this.ListViewItemSeparator}
           keyExtractor={(item, index) => index.toString()}
-          renderItem={({item}) => (
-            <View style={{backgroundColor: 'white', padding: 20}}>
-              <Text>Id: {item.user_id}</Text>
-              <Text>Name: {item.user_name}</Text>
-              <Text>Contact: {item.user_contact}</Text>
-              <Text>Address: {item.user_address}</Text>
-            </View>
-          )}
+          renderItem={({item}) => {
+            return (
+              <View style={{backgroundColor: 'white', padding: 20}}>
+                <Text>Id: {item.user_id}</Text>
+                <Text>Name: {item.user_name}</Text>
+                <Text>Contact: {item.user_contact}</Text>
+                <Text>Address: {item.user_address}</Text>
+              </View>
+            );
+          }}
         />
       </View>
     );

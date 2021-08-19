@@ -11,11 +11,15 @@ import {
   NativeModules,
   PermissionsAndroid,
   Alert,
+  Platform,
 } from 'react-native';
 
 var DirectSms = NativeModules.DirectSms;
 const {CalendarModule} = NativeModules;
-const {DEFAULT_EVENT_NAME} = CalendarModule.getConstants();
+const {DEFAULT_EVENT_NAME} =
+  Platform.OS === 'android'
+    ? CalendarModule.getConstants()
+    : {DEFAULT_EVENT_NAME: 'New Event'};
 
 export const SendSMS = () => {
   // Setting up States

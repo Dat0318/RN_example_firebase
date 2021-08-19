@@ -1,39 +1,90 @@
 // AIzaSyArZMO63HR3rgj3p52FeFkpc_unA8ZNQWw
-import React, {useEffect, useRef} from 'react';
-import {SafeAreaView, StyleSheet, View, Alert, ScrollView} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Text,
+  ScrollView,
+  Alert,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 import MapboxGL, {Logger} from '@react-native-mapbox-gl/maps';
-import MapView, {Marker} from 'react-native-maps';
+import MapView, {Marker, Callout, Polygon, Polyline} from 'react-native-maps';
+import Geolocation from '@react-native-community/geolocation';
+import isPointInPolygon from 'geolib/es/isPointInPolygon';
+
 export const MARKER = require('./Drive/marker.png');
 export const MARKER_WITH_IMAGE = require('./Drive/Marker_With_Image.png');
 export const RED_DOT = require('./Drive/Marker_With_Image.png');
 
+const {width, height} = Dimensions.get('window');
+const ASPECT_RATIO = width / height;
 MapboxGL.setAccessToken(
   'pk.eyJ1IjoiZGF0dGQiLCJhIjoiY2tzM2l3eTJ4MG43bDJ4bGl0MWQyaTB3MSJ9.6j89AM1BiwLVvmtqyDFuJw',
 );
-MapboxGL.setConnected(true);
 
-// Logger.setLogCallback(log => {
-//   const {message} = log;
-//   // expected warnings - see https://github.com/mapbox/mapbox-gl-native/issues/15341#issuecomment-522889062
-//   if (
-//     message.match('Request failed due to a permanent error: Canceled') ||
-//     message.match('Request failed due to a permanent error: Socket Closed')
-//   ) {
-//     return true;
-//   }
-//   return false;
-// });
+Logger.setLogCallback(log => {
+  const {message} = log;
+  // expected warnings - see https://github.com/mapbox/mapbox-gl-native/issues/15341#issuecomment-522889062
+  if (
+    message.match('Request failed due to a permanent error: Canceled') ||
+    message.match('Request failed due to a permanent error: Socket Closed')
+  ) {
+    return true;
+  }
+  return false;
+});
 
 export const Map = () => {
   let mapView = useRef<MapboxGL.MapView>();
   let mapCamera = useRef<MapboxGL.Camera>();
+  const [position, setPosition] = useState({
+    lat: 37.77925,
+    long: -122.4634,
+  });
+
+  let LATITUDE = position.lat,
+    LONGITUDE = position.long,
+    LATITUDE_DELTA = 0.0922,
+    LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
+
+  let polygon = [
+      {
+        latitude: position.lat + LATITUDE_DELTA / 3,
+        longitude: position.long + LONGITUDE_DELTA / 4,
+      },
+      {
+        latitude: position.lat - LATITUDE_DELTA / 3,
+        longitude: position.long + LONGITUDE_DELTA,
+      },
+      {
+        latitude: position.lat - LATITUDE_DELTA / 4,
+        longitude: position.long - LONGITUDE_DELTA / 2,
+      },
+      {
+        latitude: position.lat + LATITUDE_DELTA / 8,
+        longitude: position.long - LONGITUDE_DELTA / 2,
+      },
+    ],
+    pointIn = {
+      latitude: position.lat,
+      longitude: position.long,
+    },
+    point = {
+      latitude: position.lat - 0.0922 / 3,
+      longitude: position.long - 0.0922 / 3,
+    };
+
   const startingPoint = [3.33624, 6.57901];
-  const destinationPoint = [3.3750014, 6.5367877];
 
   let current = {
       id: 'abocancl',
-      longitude: -142.4424,
-      latitude: 0.1922,
+      // longitude: -142.4424,
+      // latitude: 0.1922,
+      latitude: 37.78825,
+      longitude: -122.4324,
     },
     data = {
       type: 'Feature',
@@ -46,33 +97,147 @@ export const Map = () => {
 
   useEffect(() => {
     MapboxGL.setTelemetryEnabled(false);
+    getLocation();
+    checkPoint();
   }, []);
+
+  const checkPoint = () => {
+    let check_point = isPointInPolygon(point, polygon);
+    let check_point_in = isPointInPolygon(pointIn, polygon);
+    console.log('===check_point=============check_point_in===================');
+    console.log(check_point, check_point_in);
+    console.log('===================================');
+  };
+
+  const onRegionChange = e => {
+    // console.log('onRegionChange: ', e);
+  };
+
+  const getLocation = () => {
+    Geolocation.getCurrentPosition(
+      pos => {
+        // console.log(pos);
+        const currentLongitude = JSON.stringify(pos.coords.longitude);
+        const currentLatitude = JSON.stringify(pos.coords.latitude);
+        setPosition({
+          lat: Number(currentLatitude),
+          long: Number(currentLongitude),
+        });
+      },
+      error => {
+        console.log(error.message);
+      },
+      {
+        enableHighAccuracy: false,
+        timeout: 30000,
+        maximumAge: 1000,
+      },
+    );
+  };
 
   return (
     <SafeAreaView style={{flex: 1}}>
       <ScrollView>
+        <TouchableOpacity style={styles.buttonScroll} onPress={getLocation}>
+          <Text>Get current location</Text>
+        </TouchableOpacity>
         <MapView
           style={styles.mapStyle}
-          initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
+          region={{
+            latitude: position.lat,
+            longitude: position.long,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
-          customMapStyle={mapStyle}>
+          // initialRegion={{
+          //   latitude: position.lat,
+          //   longitude: position.long,
+          //   latitudeDelta: 0.0922,
+          //   longitudeDelta: 0.0421,
+          // }}
+          onRegionChange={onRegionChange}
+          customMapStyle={MapStyle}>
           <Marker
             draggable
             coordinate={{
-              latitude: 37.78825,
-              longitude: -122.4324,
+              latitude: position.lat - 0.0922 / 3,
+              longitude: position.long - 0.0922 / 3,
+            }}
+            image={RED_DOT}
+          />
+          <Marker
+            draggable
+            coordinate={{
+              latitude: position.lat,
+              longitude: position.long,
             }}
             onDragEnd={e =>
               Alert.alert('Title', JSON.stringify(e.nativeEvent.coordinate))
             }
             title={'Test Marker'}
             description={'This is a description of the marker'}
+            // opacity={0.6}
+            image={RED_DOT}>
+            <Callout style={styles.plainView}>
+              <View>
+                <Text>This is a plain view</Text>
+              </View>
+            </Callout>
+          </Marker>
+          <Polygon
+            fillColor={'rgba(255,0,0,0.3)'}
+            onPress={e => {
+              console.log('========================', e);
+            }}
+            tappable
+            coordinates={[
+              {
+                latitude: position.lat + LATITUDE_DELTA / 3,
+                longitude: position.long + LONGITUDE_DELTA / 4,
+              },
+              {
+                latitude: position.lat - LATITUDE_DELTA / 3,
+                longitude: position.long + LONGITUDE_DELTA,
+              },
+              {
+                latitude: position.lat - LATITUDE_DELTA / 4,
+                longitude: position.long - LONGITUDE_DELTA / 2,
+              },
+              {
+                latitude: position.lat + LATITUDE_DELTA / 8,
+                longitude: position.long - LONGITUDE_DELTA / 2,
+              },
+            ]}
+          />
+          <Polyline
+            strokeColor={'rgba(255,0,0,1)'}
+            onPress={e => {
+              console.log('========================', e);
+            }}
+            tappable
+            coordinates={[
+              {
+                latitude: LATITUDE + LATITUDE_DELTA / 5,
+                longitude: LONGITUDE - LONGITUDE_DELTA / 4,
+              },
+              {
+                latitude: LATITUDE + LATITUDE_DELTA / 3,
+                longitude: LONGITUDE - LONGITUDE_DELTA / 4,
+              },
+              {
+                latitude: LATITUDE + LATITUDE_DELTA / 4,
+                longitude: LONGITUDE - LONGITUDE_DELTA / 2,
+              },
+              {
+                latitude: LATITUDE + LATITUDE_DELTA / 6,
+                longitude: LONGITUDE - LONGITUDE_DELTA / 4,
+              },
+            ]}
           />
         </MapView>
+        <View style={styles.buttonScroll}>
+          <Text>Next Map</Text>
+        </View>
 
         <MapboxGL.MapView
           style={styles.mapStyle}
@@ -100,6 +265,9 @@ export const Map = () => {
             />
           </MapboxGL.PointAnnotation>
         </MapboxGL.MapView>
+        <View style={styles.buttonScroll}>
+          <Text>Next Map</Text>
+        </View>
 
         <MapboxGL.MapView
           //@ts-ignore
@@ -192,12 +360,15 @@ export const Map = () => {
             />
           </MapboxGL.ShapeSource>
         </MapboxGL.MapView>
+        <View style={styles.buttonScroll}>
+          <Text>Next Map</Text>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 };
 
-const mapStyle = [
+const MapStyle = [
   {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
   {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
   {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
@@ -280,7 +451,23 @@ const mapStyle = [
 
 const styles = StyleSheet.create({
   mapStyle: {
-    height: 400,
+    height: 600,
     width: '100%',
+  },
+  buttonScroll: {
+    flexGrow: 1,
+    height: 50,
+    backgroundColor: 'lightblue',
+    marginHorizontal: 20,
+    marginVertical: 20,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  plainView: {
+    width: 150,
+    padding: 10,
+    borderRadius: 20,
+    overflow: 'hidden',
   },
 });

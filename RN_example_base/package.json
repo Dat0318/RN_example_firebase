@@ -23,7 +23,8 @@
     "ip": "ipconfig getifaddr en0",
     "cpcp": "appcenter codepush deployment clear -a adamodigital/ShopStreamAndroid Production && appcenter codepush deployment clear -a adamodigital/ShopStreamIos Production",
     "cpcs": "appcenter codepush deployment clear -a adamodigital/ShopStreamAndroid Staging && appcenter codepush deployment clear -a adamodigital/ShopStreamIos Staging",
-    "postinstall": "npx jetify"
+    "postinstall": "npx jetify",
+    "adb_uninstall": "adb uninstall com.rn_example_base"
   },
   "dependencies": {
     "@flyerhq/react-native-android-uri-path": "^2.1.2",
