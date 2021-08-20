@@ -1,12 +1,29 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Linking} from 'react-native';
 import auth from '@react-native-firebase/auth';
 // import { AppleButton } from '@invertase/react-native-apple-authentication';
+import {useRoute} from '@react-navigation/native';
 
 export function Auth() {
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
+  const route = useRoute();
+  const {params} = route;
+
+  const getUrlAsync = async () => {
+    // Get the deep link used to open the app
+    const initialUrl = await Linking.getInitialURL();
+    console.log('===initialUrl================================');
+    console.log(initialUrl);
+    console.log('===================================');
+
+    Linking.addEventListener('url', ({url}) => {
+      console.log('===================================');
+      console.log(url);
+      console.log('===================================');
+    });
+  };
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
@@ -69,6 +86,9 @@ export function Auth() {
   if (!!user) {
     return (
       <View style={styles.sectionContainer}>
+        {params?.id != 1 && (
+          <Text style={styles.attributeTitle}>Deeplink id = {params?.id}</Text>
+        )}
         <Text style={styles.sectionTitle}>Login</Text>
       </View>
     );
@@ -76,6 +96,9 @@ export function Auth() {
 
   return (
     <View style={styles.sectionContainer}>
+      {params?.id != 1 && (
+        <Text style={styles.attributeTitle}>Deeplink id = {params?.id}</Text>
+      )}
       <Text style={styles.sectionTitle}>Welcome {user?.email}</Text>
     </View>
   );
@@ -90,5 +113,9 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
+  },
+  attributeTitle: {
+    padding: 20,
+    color: '#e4002b',
   },
 });
