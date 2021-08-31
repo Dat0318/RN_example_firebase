@@ -294,6 +294,12 @@ export const List = () => {
         <Text style={styles.buttonText}>CallLogAndroid</Text>
       </TouchableOpacity>
       <TouchableOpacity
+        onPress={() => _navigate('PolylineCreator')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>PolylineCreator</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
         onPress={() => _navigate('RnRealm')}
         style={styles.button}
         activeOpacity={1}>

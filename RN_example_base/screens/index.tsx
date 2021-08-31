@@ -78,6 +78,7 @@ import {
   SQLiteViewAllUser,
   SQLiteViewUser,
 } from './SQLite/index';
+import PolylineCreator from './PolylineCreator';
 
 const Stack = createStackNavigator();
 
@@ -191,6 +192,7 @@ export function Navigation() {
       <Stack.Screen name="SQLiteViewAll" component={SQLiteViewAllUser} />
       <Stack.Screen name="SQLiteRegister" component={SQLiteRegisterUser} />
       <Stack.Screen name="SQLiteView" component={SQLiteViewUser} />
+      <Stack.Screen name="PolylineCreator" component={PolylineCreator} />
     </Stack.Navigator>
   );
 }
