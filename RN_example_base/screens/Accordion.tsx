@@ -66,7 +66,8 @@ export const AccordionSection = () => {
       <Animatable.View
         duration={400}
         style={[styles.header, isActive ? styles.active : styles.inactive]}
-        transition="backgroundColor">
+        transition="backgroundColor"
+      >
         <Text style={styles.headerText}>{section.title}</Text>
       </Animatable.View>
     );
@@ -78,10 +79,12 @@ export const AccordionSection = () => {
       <Animatable.View
         duration={400}
         style={[styles.content, isActive ? styles.active : styles.inactive]}
-        transition="backgroundColor">
+        transition="backgroundColor"
+      >
         <Animatable.Text
           animation={isActive ? 'bounceIn' : undefined}
-          style={{textAlign: 'center'}}>
+          style={{textAlign: 'center'}}
+        >
           {section.content}
         </Animatable.Text>
       </Animatable.View>
@@ -140,13 +143,15 @@ export const AccordionSection = () => {
             {SELECTORS.map(selector => (
               <TouchableOpacity
                 key={selector.title}
-                onPress={() => setSections([selector.value])}>
+                onPress={() => setSections([selector.value])}
+              >
                 <View style={styles.selector}>
                   <Text
                     style={
                       activeSections.includes(selector.value) &&
                       styles.activeSelector
-                    }>
+                    }
+                  >
                     {selector.title}
                   </Text>
                 </View>

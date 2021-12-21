@@ -158,7 +158,8 @@ export const GeoLocation = () => {
               justifyContent: 'center',
               alignItems: 'center',
               marginTop: 16,
-            }}>
+            }}
+          >
             Longitude: {currentLongitude}
           </Text>
           <Text
@@ -166,7 +167,8 @@ export const GeoLocation = () => {
               justifyContent: 'center',
               alignItems: 'center',
               marginTop: 16,
-            }}>
+            }}
+          >
             Latitude: {currentLatitude}
           </Text>
           <View style={{marginTop: 20}}>
@@ -183,7 +185,8 @@ export const GeoLocation = () => {
         </Text>
         <TouchableHighlight
           style={styles.buttonStyle}
-          onPress={calculateDistance}>
+          onPress={calculateDistance}
+        >
           <Text>Get Distance</Text>
         </TouchableHighlight>
         <Text style={styles.textStyle}>
@@ -193,7 +196,8 @@ export const GeoLocation = () => {
         </Text>
         <TouchableHighlight
           style={styles.buttonStyle}
-          onPress={calculatePreciseDistance}>
+          onPress={calculatePreciseDistance}
+        >
           <Text>Get Precise Distance</Text>
         </TouchableHighlight>
       </View>

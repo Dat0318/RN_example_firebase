@@ -113,7 +113,8 @@ export function Auth() {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
-          onPress={_loginWithEmailAndPassword}>
+          onPress={_loginWithEmailAndPassword}
+        >
           <Text style={styles.btnText}>_loginWithEmailAndPassword</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={_signOut}>

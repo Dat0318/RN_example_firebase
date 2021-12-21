@@ -48,7 +48,8 @@ export const Brightness = () => {
         <TouchableOpacity
           activeOpacity={0.7}
           style={styles.buttonStyle}
-          onPress={_getBrightness}>
+          onPress={_getBrightness}
+        >
           <Text style={styles.buttonTextStyle}>
             Get Current Brightness Value
           </Text>

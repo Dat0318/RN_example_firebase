@@ -66,7 +66,8 @@ export class RealmRegisterUser extends React.Component {
         <ScrollView keyboardShouldPersistTaps="handled">
           <KeyboardAvoidingView
             behavior="padding"
-            style={{flex: 1, justifyContent: 'space-between'}}>
+            style={{flex: 1, justifyContent: 'space-between'}}
+          >
             <Mytextinput
               placeholder="Enter Name"
               value={user_name}

@@ -58,7 +58,8 @@ export const AlphabetContacts = () => {
           console.log('width:', layout.width);
           console.log('x:', layout.x);
           console.log('y:', layout.y);
-        }}>
+        }}
+      >
         <Text style={styles.itemStyle} onPress={() => getItem(item)}>
           {item.id}. {item.title}
         </Text>
@@ -98,7 +99,8 @@ export const AlphabetContacts = () => {
           <TouchableOpacity
             activeOpacity={0.5}
             onPress={scrollHandler}
-            style={styles.searchButton}>
+            style={styles.searchButton}
+          >
             <Text style={styles.searchButtonText}>Go to Index</Text>
           </TouchableOpacity>
         </View>
@@ -106,7 +108,8 @@ export const AlphabetContacts = () => {
         <ScrollView
           ref={ref => {
             setRef(ref);
-          }}>
+          }}
+        >
           {dataSource.map(ItemView)}
         </ScrollView>
       </View>

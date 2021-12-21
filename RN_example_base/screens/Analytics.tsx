@@ -91,14 +91,16 @@ export const Analytics = () => {
           <TouchableOpacity
             activeOpacity={0.7}
             style={styles.buttonStyle}
-            onPress={realtimeLogContent}>
+            onPress={realtimeLogContent}
+          >
             <Text style={styles.buttonTextStyle}>Click Button</Text>
           </TouchableOpacity>
           <Text style={styles.normalTextStyle}>Trigger My Custom Event</Text>
           <TouchableOpacity
             activeOpacity={0.7}
             style={styles.buttonStyle}
-            onPress={logCustomeEvent}>
+            onPress={logCustomeEvent}
+          >
             <Text style={styles.buttonTextStyle}>Create Custom Event</Text>
           </TouchableOpacity>
         </View>

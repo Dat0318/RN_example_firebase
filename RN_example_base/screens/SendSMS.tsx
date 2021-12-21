@@ -84,13 +84,15 @@ export const SendSMS = () => {
         <TouchableOpacity
           activeOpacity={0.7}
           style={styles.buttonStyle}
-          onPress={sendDirectSms}>
+          onPress={sendDirectSms}
+        >
           <Text style={styles.buttonTextStyle}>Send Message</Text>
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.7}
           style={styles.buttonStyle}
-          onPress={onPress}>
+          onPress={onPress}
+        >
           <Text style={styles.buttonTextStyle}>
             Test New Calendar native code
           </Text>

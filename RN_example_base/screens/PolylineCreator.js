@@ -69,7 +69,8 @@ class PolylineCreator extends React.Component {
           style={styles.map}
           initialRegion={this.state.region}
           scrollEnabled={false}
-          onPanDrag={e => this.onPanDrag(e)}>
+          onPanDrag={e => this.onPanDrag(e)}
+        >
           {this.state.polylines.map(polyline => (
             <Polyline
               key={polyline.id}
@@ -93,7 +94,8 @@ class PolylineCreator extends React.Component {
           {this.state.editing && (
             <TouchableOpacity
               onPress={() => this.finish()}
-              style={[styles.bubble, styles.button]}>
+              style={[styles.bubble, styles.button]}
+            >
               <Text>Finish</Text>
             </TouchableOpacity>
           )}

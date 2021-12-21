@@ -59,13 +59,15 @@ export const FirebaseAuth = ({navigation}) => {
             flex: 1,
             alignItems: 'center',
             justifyContent: 'center',
-          }}>
+          }}
+        >
           <Text
             style={{
               fontSize: 20,
               textAlign: 'center',
               marginBottom: 16,
-            }}>
+            }}
+          >
             Firebase Auth
           </Text>
           {user ? (
@@ -76,7 +78,8 @@ export const FirebaseAuth = ({navigation}) => {
           <TouchableOpacity
             style={styles.buttonStyle}
             activeOpacity={0.5}
-            onPress={logout}>
+            onPress={logout}
+          >
             <Text style={styles.buttonTextStyle}>Logout</Text>
           </TouchableOpacity>
         </View>

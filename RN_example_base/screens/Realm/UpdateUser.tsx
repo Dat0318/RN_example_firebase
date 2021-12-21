@@ -102,7 +102,8 @@ export class RealmUpdateUser extends React.Component {
         <ScrollView keyboardShouldPersistTaps="handled">
           <KeyboardAvoidingView
             behavior="padding"
-            style={{flex: 1, justifyContent: 'space-between'}}>
+            style={{flex: 1, justifyContent: 'space-between'}}
+          >
             <Mytextinput
               placeholder="Enter User Id"
               onChangeText={input_user_id => this.setState({input_user_id})}

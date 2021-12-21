@@ -49,7 +49,8 @@ export const ImageMap = () => {
           fontSize: 30,
           textAlign: 'center',
           marginTop: 40,
-        }}>
+        }}
+      >
         Image Mapper Example in React Native
       </Text>
       <ImageMapper

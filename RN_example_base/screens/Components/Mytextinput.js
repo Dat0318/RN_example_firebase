@@ -8,7 +8,8 @@ export const Mytextinput = props => {
         marginTop: 10,
         borderColor: '#03A89E',
         borderWidth: 1,
-      }}>
+      }}
+    >
       <TextInput
         underlineColorAndroid="transparent"
         placeholder={props.placeholder}

@@ -110,7 +110,8 @@ export const Ama = () => {
             <TouchableOpacity
               activeOpacity={0.5}
               style={styles.buttonStyleGreen}
-              onPress={uploadFile}>
+              onPress={uploadFile}
+            >
               <Text style={styles.textStyleWhite}>Upload Image</Text>
             </TouchableOpacity>
           </>
@@ -121,7 +122,8 @@ export const Ama = () => {
         <TouchableOpacity
           activeOpacity={0.5}
           style={styles.buttonStyle}
-          onPress={chooseFile}>
+          onPress={chooseFile}
+        >
           <Text style={styles.textStyleWhite}>Choose Image</Text>
         </TouchableOpacity>
       </View>

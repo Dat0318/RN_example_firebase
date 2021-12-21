@@ -32,7 +32,8 @@ export class RnRealm extends React.Component {
           flex: 1,
           backgroundColor: 'white',
           flexDirection: 'column',
-        }}>
+        }}
+      >
         <Mytext text="RealM Example" />
         <Mybutton
           title="Register"

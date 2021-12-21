@@ -49,40 +49,46 @@ export const Drive = ({navigation, route}) => {
         <ScrollView>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => navigation.navigate('GDUploadFileScreen')}>
+            onPress={() => navigation.navigate('GDUploadFileScreen')}
+          >
             <Text>Select and Upload File on Google Drive</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyle}
             onPress={() =>
               navigation.navigate('GDFilesListingScreen', {type: 'all'})
-            }>
+            }
+          >
             <Text>Listing of Files from Google Drive</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyle}
             onPress={() =>
               navigation.navigate('GDFilesListingScreen', {type: 'filtered'})
-            }>
+            }
+          >
             <Text style={{textAlign: 'center'}}>
               Get Specific File Content from Google Drive
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => navigation.navigate('GDSingleFileScreen')}>
+            onPress={() => navigation.navigate('GDSingleFileScreen')}
+          >
             <Text style={{textAlign: 'center'}}>
               Get Single File Content from Google Drive
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => navigation.navigate('GDDeleteFileScreen')}>
+            onPress={() => navigation.navigate('GDDeleteFileScreen')}
+          >
             <Text>Delete any File from Google Drive</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => navigation.navigate('GDDownloadFileScreen')}>
+            onPress={() => navigation.navigate('GDDownloadFileScreen')}
+          >
             <Text>Download File from Google Drive</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonStyle} onPress={_signOut}>

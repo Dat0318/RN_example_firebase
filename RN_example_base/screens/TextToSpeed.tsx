@@ -95,7 +95,8 @@ export const TextToSpeed = () => {
         style={{
           backgroundColor: selectedVoice === item.id ? '#DDA0DD' : '#5F9EA0',
         }}
-        onPress={() => onVoicePress(item)}>
+        onPress={() => onVoicePress(item)}
+      >
         <Text style={styles.buttonTextStyle}>
           {`${item.language} - ${item.name || item.id}`}
         </Text>

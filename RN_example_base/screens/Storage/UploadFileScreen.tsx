@@ -127,7 +127,8 @@ export const UploadFileScreen = () => {
               <TouchableOpacity
                 activeOpacity={0.5}
                 style={styles.buttonStyle}
-                onPress={_chooseFile}>
+                onPress={_chooseFile}
+              >
                 <Text style={styles.buttonTextStyle}>
                   Choose Image (Current Selected:{' '}
                   {Object.keys(filePath).length == 0 ? 0 : 1})
@@ -135,7 +136,8 @@ export const UploadFileScreen = () => {
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.buttonStyle}
-                onPress={_uploadFile}>
+                onPress={_uploadFile}
+              >
                 <Text style={styles.buttonTextStyle}>
                   Upload File on FireStorage
                 </Text>

@@ -67,7 +67,8 @@ export const RnKeepAwake = () => {
           <TouchableOpacity
             activeOpacity={0.7}
             style={styles.buttonStyle}
-            onPress={() => changeKeepAwake(false)}>
+            onPress={() => changeKeepAwake(false)}
+          >
             <Text style={styles.buttonTextStyle}>
               Make Screen Normal by Calling Function
             </Text>
@@ -76,7 +77,8 @@ export const RnKeepAwake = () => {
           <TouchableOpacity
             activeOpacity={0.7}
             style={styles.buttonStyle}
-            onPress={() => changeKeepAwake(true)}>
+            onPress={() => changeKeepAwake(true)}
+          >
             <Text style={styles.buttonTextStyle}>
               Keep Screen Awake by Calling Function
             </Text>
@@ -88,7 +90,8 @@ export const RnKeepAwake = () => {
             <TouchableOpacity
               activeOpacity={0.7}
               style={styles.buttonStyle}
-              onPress={() => changeKeepAwakeComponenet(false)}>
+              onPress={() => changeKeepAwakeComponenet(false)}
+            >
               <Text style={styles.buttonTextStyle}>
                 Make Screen Normal using Component
               </Text>
@@ -99,7 +102,8 @@ export const RnKeepAwake = () => {
           <TouchableOpacity
             activeOpacity={0.7}
             style={styles.buttonStyle}
-            onPress={() => changeKeepAwakeComponenet(true)}>
+            onPress={() => changeKeepAwakeComponenet(true)}
+          >
             <Text style={styles.buttonTextStyle}>
               Keep Screen Awake using Component
             </Text>
@@ -108,19 +112,22 @@ export const RnKeepAwake = () => {
         <TouchableOpacity
           activeOpacity={0.7}
           style={styles.buttonStyle}
-          onPress={startVibration}>
+          onPress={startVibration}
+        >
           <Text style={styles.buttonTextStyle}>Start Vibration</Text>
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.7}
           style={styles.buttonStyle}
-          onPress={stopVibration}>
+          onPress={stopVibration}
+        >
           <Text style={styles.buttonTextStyle}>Stop Vibration</Text>
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.5}
           style={styles.buttonStyle}
-          onPress={_openAppSetting}>
+          onPress={_openAppSetting}
+        >
           <Text style={styles.buttonTextStyle}>Open the Settings App</Text>
         </TouchableOpacity>
       </View>

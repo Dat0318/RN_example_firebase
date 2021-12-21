@@ -52,7 +52,8 @@ export const GenQR = () => {
         />
         <TouchableOpacity
           style={styles.buttonStyle}
-          onPress={() => setQrvalue(inputText)}>
+          onPress={() => setQrvalue(inputText)}
+        >
           <Text style={styles.buttonTextStyle}>Generate QR Code</Text>
         </TouchableOpacity>
       </View>

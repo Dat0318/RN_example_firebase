@@ -57,19 +57,22 @@ export const Crashlytics = () => {
         <TouchableOpacity
           activeOpacity={0.5}
           style={styles.buttonStyle}
-          onPress={() => logCrashlytics()}>
+          onPress={() => logCrashlytics()}
+        >
           <Text style={styles.buttonTextStyle}>Log User Details</Text>
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.5}
           style={styles.buttonStyle}
-          onPress={logCrash}>
+          onPress={logCrash}
+        >
           <Text style={styles.buttonTextStyle}>Log Crash</Text>
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.5}
           style={styles.buttonStyle}
-          onPress={logError}>
+          onPress={logError}
+        >
           <Text style={styles.buttonTextStyle}>Log Error</Text>
         </TouchableOpacity>
       </View>

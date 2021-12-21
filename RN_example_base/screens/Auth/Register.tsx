@@ -63,7 +63,8 @@ export const Register = ({navigation}) => {
         contentContainerStyle={{
           justifyContent: 'center',
           alignContent: 'center',
-        }}>
+        }}
+      >
         <View style={{alignItems: 'center'}}>
           <Image
             source={{
@@ -129,7 +130,8 @@ export const Register = ({navigation}) => {
           <TouchableOpacity
             style={styles.buttonStyle}
             activeOpacity={0.5}
-            onPress={handleSubmitButton}>
+            onPress={handleSubmitButton}
+          >
             <Text style={styles.buttonTextStyle}>REGISTER</Text>
           </TouchableOpacity>
         </KeyboardAvoidingView>

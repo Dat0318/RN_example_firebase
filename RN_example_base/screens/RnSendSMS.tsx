@@ -94,7 +94,8 @@ export const RnSendSMS = () => {
         <TouchableOpacity
           activeOpacity={0.7}
           style={styles.buttonStyle}
-          onPress={initiateSMS}>
+          onPress={initiateSMS}
+        >
           <Text style={styles.buttonTextStyle}>Send Message</Text>
         </TouchableOpacity>
 
@@ -109,7 +110,8 @@ export const RnSendSMS = () => {
         <TouchableOpacity
           activeOpacity={0.7}
           style={styles.buttonStyle}
-          onPress={initiateWhatsApp}>
+          onPress={initiateWhatsApp}
+        >
           <Text style={styles.buttonTextStyle}>Send WhatsApp Message</Text>
         </TouchableOpacity>
       </View>

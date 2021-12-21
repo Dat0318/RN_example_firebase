@@ -61,7 +61,8 @@ export const DeleteUser = props => {
         backgroundColor: 'white',
         flex: 1,
         paddingHorizontal: 35,
-      }}>
+      }}
+    >
       <Mytextinput
         placeholder="Enter User Id"
         onChangeText={userId => setUserId(userId)}

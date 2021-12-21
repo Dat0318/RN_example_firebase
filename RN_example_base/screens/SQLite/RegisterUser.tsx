@@ -66,7 +66,8 @@ export const SQLiteRegisterUser = ({navigation}) => {
           <ScrollView keyboardShouldPersistTaps="handled">
             <KeyboardAvoidingView
               behavior="padding"
-              style={{flex: 1, justifyContent: 'space-between'}}>
+              style={{flex: 1, justifyContent: 'space-between'}}
+            >
               <Mytextinput
                 placeholder="Enter Name"
                 value={userName}

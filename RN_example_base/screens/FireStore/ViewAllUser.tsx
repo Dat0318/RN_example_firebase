@@ -74,7 +74,8 @@ export const ViewAllUser = () => {
         style={{
           backgroundColor: 'white',
           padding: 20,
-        }}>
+        }}
+      >
         <Text>Doc Id: {item.id}</Text>
         <Text>Name: {item.name}</Text>
         <Text>Contact: {item.contact}</Text>

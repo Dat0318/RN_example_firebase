@@ -18,12 +18,14 @@ export const CloudStorage = props => {
         </Text>
         <TouchableOpacity
           style={styles.buttonStyle}
-          onPress={() => props.navigation.navigate('UploadFileScreen')}>
+          onPress={() => props.navigation.navigate('UploadFileScreen')}
+        >
           <Text style={styles.buttonTextStyle}>Upload File</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonStyle}
-          onPress={() => props.navigation.navigate('FilesListingScreen')}>
+          onPress={() => props.navigation.navigate('FilesListingScreen')}
+        >
           <Text style={styles.buttonTextStyle}>Uploaded File Listing</Text>
         </TouchableOpacity>
       </View>

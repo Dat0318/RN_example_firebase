@@ -33,7 +33,8 @@ export const InAppMessage = () => {
         <TouchableOpacity
           activeOpacity={0.5}
           style={styles.buttonStyle}
-          onPress={() => allowToReceiveMessage(!canReceiveMessage)}>
+          onPress={() => allowToReceiveMessage(!canReceiveMessage)}
+        >
           <Text style={styles.buttonTextStyle}>
             {canReceiveMessage
               ? 'Disable Receiving Message'

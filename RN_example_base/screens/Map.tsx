@@ -156,7 +156,8 @@ export const Map = () => {
           //   longitudeDelta: 0.0421,
           // }}
           onRegionChange={onRegionChange}
-          customMapStyle={MapStyle}>
+          customMapStyle={MapStyle}
+        >
           <Marker
             draggable
             coordinate={{
@@ -177,7 +178,8 @@ export const Map = () => {
             title={'Test Marker'}
             description={'This is a description of the marker'}
             // opacity={0.6}
-            image={RED_DOT}>
+            image={RED_DOT}
+          >
             <Callout style={styles.plainView}>
               <View>
                 <Text>This is a plain view</Text>
@@ -244,7 +246,8 @@ export const Map = () => {
           styleURL={MapboxGL.StyleURL.Street}
           zoomLevel={16}
           centerCoordinate={[3.33624, 6.57901]}
-          showUserLocation={true}>
+          showUserLocation={true}
+        >
           <MapboxGL.Camera
             zoomLevel={16}
             centerCoordinate={[3.33624, 6.57901]}
@@ -252,7 +255,8 @@ export const Map = () => {
           <MapboxGL.PointAnnotation
             key="pointAnnotation"
             id="pointAnnotation"
-            coordinate={startingPoint}>
+            coordinate={startingPoint}
+          >
             <View
               style={{
                 height: 30,
@@ -274,7 +278,8 @@ export const Map = () => {
           ref={mapView}
           compassEnabled={false}
           style={styles.mapStyle}
-          styleURL={MapboxGL.StyleURL.Dark}>
+          styleURL={MapboxGL.StyleURL.Dark}
+        >
           <MapboxGL.Camera
             ref={mapCamera}
             // animationDuration={400}
@@ -319,7 +324,8 @@ export const Map = () => {
                 // });
               }
             }}
-            shape={data}>
+            shape={data}
+          >
             <MapboxGL.SymbolLayer
               // aboveLayerID='userMarker'
               filter={['==', 'type', 'nonImg']}

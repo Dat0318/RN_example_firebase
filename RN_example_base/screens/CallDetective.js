@@ -127,7 +127,8 @@ export const CallDetective = () => {
         <TouchableOpacity
           activeOpacity={0.7}
           onPress={callFriendTapped}
-          style={styles.fabStyle}>
+          style={styles.fabStyle}
+        >
           <Image
             source={{
               uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/input_phone.png',

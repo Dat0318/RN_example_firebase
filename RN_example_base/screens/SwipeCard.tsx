@@ -94,7 +94,8 @@ const SwipeableCard = ({item, removeCard, swipedDirection}) => {
           opacity: cardOpacity,
           transform: [{translateX: xPosition}, {rotate: rotateCard}],
         },
-      ]}>
+      ]}
+    >
       <Text style={styles.cardTitleStyle}> {item.cardTitle} </Text>
     </Animated.View>
   );

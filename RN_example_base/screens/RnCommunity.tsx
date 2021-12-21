@@ -143,7 +143,8 @@ export const RnCommunity = () => {
         <TouchableOpacity
           activeOpacity={0.7}
           style={styles.buttonStyle}
-          onPress={() => Communications.phonecall('0123456789', true)}>
+          onPress={() => Communications.phonecall('0123456789', true)}
+        >
           <Text style={styles.buttonTextStyle}>Make Phone Call</Text>
         </TouchableOpacity>
         {/* Mail: email(to, cc, bcc, subject, body) */}
@@ -158,7 +159,8 @@ export const RnCommunity = () => {
               'Demo Subject',
               'Demo Content for the mail',
             )
-          }>
+          }
+        >
           <Text style={styles.buttonTextStyle}>Send an Email</Text>
         </TouchableOpacity>
         {/* SMS: text(phoneNumber = null, body = null) */}
@@ -167,14 +169,16 @@ export const RnCommunity = () => {
           style={styles.buttonStyle}
           onPress={() =>
             Communications.text('0123456789', 'Follow https://aboutreact.com')
-          }>
+          }
+        >
           <Text style={styles.buttonTextStyle}>Send a Text/iMessage</Text>
         </TouchableOpacity>
         {/* Web: web(address = null)*/}
         <TouchableOpacity
           activeOpacity={0.7}
           style={styles.buttonStyle}
-          onPress={() => Communications.web('https://aboutreact.com')}>
+          onPress={() => Communications.web('https://aboutreact.com')}
+        >
           <Text style={styles.buttonTextStyle}>Open AboutReact</Text>
         </TouchableOpacity>
 
@@ -190,7 +194,8 @@ export const RnCommunity = () => {
           <TouchableOpacity
             onPress={startRatingCounter}
             activeOpacity={0.6}
-            style={styles.buttonStyle}>
+            style={styles.buttonStyle}
+          >
             <Text style={styles.buttonTextStyle}>Restart Rating Counter</Text>
           </TouchableOpacity>
         )}
@@ -217,7 +222,8 @@ export const RnCommunity = () => {
         <TouchableOpacity
           activeOpacity={0.7}
           style={styles.buttonStyle}
-          onPress={postOnFacebook}>
+          onPress={postOnFacebook}
+        >
           <Text style={styles.buttonTextStyle}>Share on Facebook</Text>
         </TouchableOpacity>
 
@@ -251,7 +257,8 @@ export const RnCommunity = () => {
         <TouchableOpacity
           activeOpacity={0.7}
           style={styles.buttonStyle}
-          onPress={tweetNow}>
+          onPress={tweetNow}
+        >
           <Text style={styles.buttonTextStyle}>Tweet Now</Text>
         </TouchableOpacity>
       </View>

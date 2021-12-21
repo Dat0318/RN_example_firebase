@@ -91,7 +91,8 @@ export const Login = ({navigation}) => {
           flex: 1,
           justifyContent: 'center',
           alignContent: 'center',
-        }}>
+        }}
+      >
         <View>
           <KeyboardAvoidingView enabled>
             <View style={{alignItems: 'center'}}>
@@ -146,12 +147,14 @@ export const Login = ({navigation}) => {
             <TouchableOpacity
               style={styles.buttonStyle}
               activeOpacity={0.5}
-              onPress={handleSubmitPress}>
+              onPress={handleSubmitPress}
+            >
               <Text style={styles.buttonTextStyle}>LOGIN</Text>
             </TouchableOpacity>
             <Text
               style={styles.registerTextStyle}
-              onPress={() => navigation.navigate('Register')}>
+              onPress={() => navigation.navigate('Register')}
+            >
               New Here ? Register
             </Text>
             <MultiSelect

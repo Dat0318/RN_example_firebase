@@ -171,17 +171,20 @@ export const SpeedToText = () => {
         <View style={styles.horizontalView}>
           <TouchableHighlight
             onPress={stopRecognizing}
-            style={styles.buttonStyle}>
+            style={styles.buttonStyle}
+          >
             <Text style={styles.buttonTextStyle}>Stop</Text>
           </TouchableHighlight>
           <TouchableHighlight
             onPress={cancelRecognizing}
-            style={styles.buttonStyle}>
+            style={styles.buttonStyle}
+          >
             <Text style={styles.buttonTextStyle}>Cancel</Text>
           </TouchableHighlight>
           <TouchableHighlight
             onPress={destroyRecognizer}
-            style={styles.buttonStyle}>
+            style={styles.buttonStyle}
+          >
             <Text style={styles.buttonTextStyle}>Destroy</Text>
           </TouchableHighlight>
         </View>

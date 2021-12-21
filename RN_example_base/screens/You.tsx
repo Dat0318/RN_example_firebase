@@ -41,7 +41,8 @@ export const You = () => {
         }) => {
           if (!containerMounted) setContainerMounted(true);
           if (containerWidth !== width) setContainerWidth(width);
-        }}>
+        }}
+      >
         {containerMounted && (
           <YouTube
             ref={youtubePlayerRef}
@@ -84,14 +85,16 @@ export const You = () => {
         <View style={styles.buttonGroup}>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => setIsPlaying(isPlaying => !isPlaying)}>
+            onPress={() => setIsPlaying(isPlaying => !isPlaying)}
+          >
             <Text style={styles.buttonText}>
               {status == 'playing' ? 'Pause' : 'Play'}
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => setIsLooping(isLooping => !isLooping)}>
+            onPress={() => setIsLooping(isLooping => !isLooping)}
+          >
             <Text style={styles.buttonText}>
               {isLooping ? 'Looping' : 'Not Looping'}
             </Text>
@@ -105,14 +108,16 @@ export const You = () => {
             onPress={() =>
               youtubePlayerRef.current &&
               youtubePlayerRef.current.previousVideo()
-            }>
+            }
+          >
             <Text style={styles.buttonText}>Previous Video</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.button}
             onPress={() =>
               youtubePlayerRef.current && youtubePlayerRef.current.nextVideo()
-            }>
+            }
+          >
             <Text style={styles.buttonText}>Next Video</Text>
           </TouchableOpacity>
         </View>
@@ -123,7 +128,8 @@ export const You = () => {
             style={styles.button}
             onPress={() =>
               youtubePlayerRef.current && youtubePlayerRef.current.seekTo(15)
-            }>
+            }
+          >
             <Text style={styles.buttonText}>15 Seconds</Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -131,7 +137,8 @@ export const You = () => {
             onPress={() =>
               youtubePlayerRef.current &&
               youtubePlayerRef.current.seekTo(2 * 60)
-            }>
+            }
+          >
             <Text style={styles.buttonText}>2 Minutes</Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -139,7 +146,8 @@ export const You = () => {
             onPress={() =>
               youtubePlayerRef.current &&
               youtubePlayerRef.current.seekTo(15 * 60)
-            }>
+            }
+          >
             <Text style={styles.buttonText}>15 Minutes</Text>
           </TouchableOpacity>
         </View>
@@ -156,12 +164,11 @@ export const You = () => {
                   onPress={() =>
                     youtubePlayerRef.current &&
                     youtubePlayerRef.current.playVideoAt(i)
-                  }>
+                  }
+                >
                   <Text
-                    style={[
-                      styles.buttonText,
-                      styles.buttonTextSmall,
-                    ]}>{`Video ${i}`}</Text>
+                    style={[styles.buttonText, styles.buttonTextSmall]}
+                  >{`Video ${i}`}</Text>
                 </TouchableOpacity>
               ))}
             </View>
@@ -172,7 +179,8 @@ export const You = () => {
           <View style={styles.buttonGroup}>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => setFullscreen(true)}>
+              onPress={() => setFullscreen(true)}
+            >
               <Text style={styles.buttonText}>Set Fullscreen</Text>
             </TouchableOpacity>
           </View>

@@ -11,7 +11,8 @@ export const FileStore = (props: any) => {
         backgroundColor: 'white',
         flexDirection: 'column',
         paddingHorizontal: 35,
-      }}>
+      }}
+    >
       <Mytext text="Firebase Cloud Firestore Database Example" />
       <Mybutton
         title="Register (Add a Document)"

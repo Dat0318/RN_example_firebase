@@ -177,7 +177,8 @@ const GDUploadFileScreen = () => {
               />
               <TouchableOpacity
                 style={styles.buttonStyle}
-                onPress={_uploadDriveData}>
+                onPress={_uploadDriveData}
+              >
                 <Text>uploadDriveFile</Text>
               </TouchableOpacity>
               <View style={styles.deviderContainer}>
@@ -191,14 +192,16 @@ const GDUploadFileScreen = () => {
               <TouchableOpacity
                 activeOpacity={0.5}
                 style={styles.buttonStyle}
-                onPress={_chooseFile}>
+                onPress={_chooseFile}
+              >
                 <Text style={styles.textStyleWhite}>
                   Choose Image (Current Selected: {filePath.uri ? 1 : 0})
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.buttonStyle}
-                onPress={_uploadDriveDataImage}>
+                onPress={_uploadDriveDataImage}
+              >
                 <Text>uploadDriveDataImage</Text>
               </TouchableOpacity>
             </View>

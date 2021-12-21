@@ -54,14 +54,16 @@ export const Signature = () => {
             style={styles.buttonStyle}
             onPress={() => {
               saveSign();
-            }}>
+            }}
+          >
             <Text>Save</Text>
           </TouchableHighlight>
           <TouchableHighlight
             style={styles.buttonStyle}
             onPress={() => {
               resetSign();
-            }}>
+            }}
+          >
             <Text>Reset</Text>
           </TouchableHighlight>
         </View>
