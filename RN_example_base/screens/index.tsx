@@ -16,6 +16,7 @@ import {ImageMap} from './ImageMapper';
 import {SwipeCard} from './SwipeCard';
 import {AccordionSection} from './Accordion';
 import {AlphabetContacts} from './AlphabetContacts';
+import {CountDownCircle} from './CountDownCircle';
 import {
   GoogleLoginScreen,
   GDUploadFileScreen,
@@ -193,6 +194,7 @@ export function Navigation() {
       <Stack.Screen name="SQLiteRegister" component={SQLiteRegisterUser} />
       <Stack.Screen name="SQLiteView" component={SQLiteViewUser} />
       <Stack.Screen name="PolylineCreator" component={PolylineCreator} />
+      <Stack.Screen name="CountDownCircle" component={CountDownCircle} />
     </Stack.Navigator>
   );
 }

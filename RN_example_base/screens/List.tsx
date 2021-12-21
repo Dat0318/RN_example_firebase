@@ -17,6 +17,12 @@ export const List = () => {
 
   return (
     <ScrollView style={styles.container}>
+      <TouchableOpacity
+        onPress={() => _navigate('CountDownCircle')}
+        style={styles.button}
+        activeOpacity={1}>
+        <Text style={styles.buttonText}>CountDownCircle</Text>
+      </TouchableOpacity>
       <View style={styles.buttonTtl}>
         <Text style={styles.buttonText}>Firebase Example</Text>
       </View>
